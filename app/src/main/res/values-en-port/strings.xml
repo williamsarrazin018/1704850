@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">WilliamSarrazin</string>
-    <string name="message_bienvenue">Bonjour!</string>
+    <string name="message_bienvenue">Hello!</string>
     <string name="orientation">portrait</string>
 </resources>

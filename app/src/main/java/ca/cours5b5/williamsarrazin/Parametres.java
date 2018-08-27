@@ -11,6 +11,9 @@ public class Parametres extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parametres);
-        Log.d("MonEtiquette", "Bonjour!");
+
+        Log.d("Bonjour",  this.getResources().getString(R.string.message_bienvenue) + this.getResources().getString(R.string.orientation));
+
+
     }
 }
