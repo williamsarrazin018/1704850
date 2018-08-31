@@ -3,4 +3,7 @@
     <string name="app_name">WilliamSarrazin</string>
     <string name="message_bienvenue">Bonjour!</string>
     <string name="orientation">paysage</string>
+    <string name="largeur">Largeur : </string>
+    <string name="hauteur">Hauteur : </string>
+    <string name="pourgagner">Pour gagner : </string>
 </resources>

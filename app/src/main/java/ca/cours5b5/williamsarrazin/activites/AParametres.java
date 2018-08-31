@@ -1,11 +1,13 @@
-package ca.cours5b5.williamsarrazin;
+package ca.cours5b5.williamsarrazin.activites;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import ca.cours5b5.williamsarrazin.R;
 
-public class Parametres extends AppCompatActivity {
+
+public class AParametres extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,4 +18,6 @@ public class Parametres extends AppCompatActivity {
 
 
     }
+
+
 }
