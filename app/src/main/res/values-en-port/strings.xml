@@ -6,4 +6,5 @@
     <string name="largeur">Width : </string>
     <string name="hauteur">Height : </string>
     <string name="pourgagner">To win : </string>
+    <string name="parametres">PARAMETERS</string>
 </resources>

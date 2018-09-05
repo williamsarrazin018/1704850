@@ -35,8 +35,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.724"
         app:layout_constraintStart_toEndOf="@+id/textViewLargeur"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.471" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerHauteur"
+        app:layout_constraintVertical_bias="0.229" />
 
     <Spinner
         android:id="@+id/spinnerPourGagner"
@@ -50,8 +50,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textViewPourGagner"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.707" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerLargeur"
+        app:layout_constraintVertical_bias="0.359" />
 
     <TextView
         android:id="@+id/textViewHauteur"
@@ -89,8 +89,8 @@
         app:layout_constraintEnd_toStartOf="@+id/spinnerHauteur"
         app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewHauteur"
+        app:layout_constraintVertical_bias="0.236" />
 
     <TextView
         android:id="@+id/textViewPourGagner"
@@ -105,7 +105,7 @@
         app:layout_constraintEnd_toStartOf="@+id/spinnerLargeur"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.717" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewLargeur"
+        app:layout_constraintVertical_bias="0.382" />
 
 </ca.cours5b5.williamsarrazin.vues.VParametres>

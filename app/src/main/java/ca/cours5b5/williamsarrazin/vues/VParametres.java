@@ -9,7 +9,7 @@ import android.widget.Spinner;
 import ca.cours5b5.williamsarrazin.R;
 import ca.cours5b5.williamsarrazin.global.GConstantes;
 
-public class VParametres extends ConstraintLayout {
+public class VParametres extends Vue {
 
     private Spinner spinnerHauteur;
     private Spinner spinnerLargeur;
