@@ -1,7 +1,9 @@
 package ca.cours5b5.williamsarrazin.modeles;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import ca.cours5b5.williamsarrazin.global.GConstantes;
 import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
 
 public class MParametres extends Modele{
@@ -22,7 +24,12 @@ public class MParametres extends Modele{
     private List<Integer> choixLargeur;
     private List<Integer> choixPourGagner;
 
+
     public MParametres(){
+
+        genererListeChoixHauteur();
+        genererListeChoixLargeur();
+        genererListeChoixPourGagner();
 
     }
 
@@ -50,28 +57,61 @@ public class MParametres extends Modele{
         return pourGagner;
     }
 
-    public void setHauteur(){
+    public void setHauteur(int hauteur){
 
-
-    }
-
-    public void setLargeur(){
+        this.hauteur = hauteur;
 
     }
 
-    public void setPourGagner(){
+    public void setLargeur(int largeur){
+
+        this.largeur = largeur;
+
+    }
+
+    public void setPourGagner(int pourGagner){
+
+        this.pourGagner = pourGagner;
 
     }
 
     private void genererListeChoixHauteur(){
 
+        List<Integer> listeChoix = new ArrayList<Integer>();
+
+        for (int i = GConstantes.HAUTEUR_MIN; i <= GConstantes.HAUTEUR_MAX; i++) {
+            listeChoix.add(i);
+        }
+
+        this.setHauteur(2);
+        choixHauteur = listeChoix;
+
+
     }
 
     private void genererListeChoixLargeur(){
 
+        List<Integer> listeChoix = new ArrayList<Integer>();
+
+        for (int i = GConstantes.LARGEUR_MIN; i <= GConstantes.LARGEUR_MAX; i++) {
+            listeChoix.add(i);
+        }
+
+        this.setLargeur(2);
+        choixLargeur = listeChoix;
+
     }
 
     private void genererListeChoixPourGagner(){
+
+        List<Integer> listeChoix = new ArrayList<Integer>();
+
+        for (int i = GConstantes.GAGNER_MIN; i <= GConstantes.GAGNER_MAX; i++) {
+            listeChoix.add(i);
+        }
+
+        this.setPourGagner(2);
+        choixPourGagner = listeChoix;
 
     }
 }

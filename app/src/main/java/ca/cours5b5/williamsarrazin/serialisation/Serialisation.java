@@ -8,7 +8,7 @@ import ca.cours5b5.williamsarrazin.exceptions.ErreurDeSerialisation;
 public class Serialisation {
 
     public static Map<String, Object> serialiser(Serialisable obj) throws ErreurDeSerialisation {
-
+        return null;
     }
 
     public static void deserialiser(Serialisable obj, Map<String, Object> objetJson) throws ErreurDeSerialisation{
@@ -20,7 +20,7 @@ public class Serialisation {
     }
 
     private static boolean siAttributSerialisable(Field attribut){
-
+        return false;
     }
 
     private static void serialiserAttribut(Map<String, Object> objetJson, Serialisable obj, Field attribut){
@@ -28,7 +28,7 @@ public class Serialisation {
     }
 
     private static Object serialiserValeur(Class type, Object valeur){
-
+        return null;
     }
 
     private static void deserialiserAttribut(Serialisable obj, Map<String, Object> objetJson) {

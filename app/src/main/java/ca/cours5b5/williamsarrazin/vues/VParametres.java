@@ -1,14 +1,13 @@
 package ca.cours5b5.williamsarrazin.vues;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import ca.cours5b5.williamsarrazin.R;
-import ca.cours5b5.williamsarrazin.global.GConstantes;
+import ca.cours5b5.williamsarrazin.modeles.MParametres;
 
 public class VParametres extends Vue {
 
@@ -19,6 +18,7 @@ public class VParametres extends Vue {
     private Spinner spinnerHauteur;
     private Spinner spinnerLargeur;
     private Spinner spinnerPourGagner;
+
 
     public VParametres(Context context) {
         super(context);
@@ -37,6 +37,21 @@ public class VParametres extends Vue {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
+        MParametres test = new MParametres();
+        
+        ArrayAdapter<Integer> adapterHauteur = new ArrayAdapter<>(this.getContext(), R.layout.support_simple_spinner_dropdown_item, MParametres.instance.getChoixHauteur());
+        spinnerHauteur.setAdapter(adapterHauteur);
+        spinnerHauteur.setSelection(MParametres.instance.getHauteur());
+
+        ArrayAdapter<Integer> adapterLargeur = new ArrayAdapter<>(this.getContext(), R.layout.support_simple_spinner_dropdown_item, MParametres.instance.getChoixLargeur());
+        spinnerLargeur.setAdapter(adapterLargeur);
+        spinnerLargeur.setSelection(MParametres.instance.getLargeur());
+
+        ArrayAdapter<Integer> adapterPourGagner = new ArrayAdapter<>(this.getContext(), R.layout.support_simple_spinner_dropdown_item, MParametres.instance.getChoixPourGagner());
+        spinnerPourGagner.setAdapter(adapterPourGagner);
+        spinnerPourGagner.setSelection(MParametres.instance.getPourGagner());
+
+        /*
         //Hauteur
         spinnerHauteur = this.findViewById(R.id.spinnerHauteur);
 
@@ -47,6 +62,8 @@ public class VParametres extends Vue {
         for (int i = GConstantes.HAUTEUR_MIN; i <= GConstantes.HAUTEUR_MAX; i++) {
             adapterHauteur.add(i + "");
         }
+
+
 
         spinnerHauteur.setSelection(2);
 
@@ -75,7 +92,7 @@ public class VParametres extends Vue {
         }
 
         spinnerPourGagner.setSelection(1);
-
+        */
     }
 
 }

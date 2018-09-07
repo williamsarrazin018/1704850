@@ -6,10 +6,10 @@ import ca.cours5b5.williamsarrazin.exceptions.ErreurIntrospection;
 
 public class Introspection {
 
-    private static final List<String> PAQUETS;
+    private static final List<String> PAQUETS = null;
 
     public  static  <T> Class<T> trouverClasse(String nomClasse) throws ErreurIntrospection{
-
+         return null;
     }
 
 }
