@@ -3,6 +3,7 @@ package ca.cours5b5.williamsarrazin.vues;
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -10,6 +11,10 @@ import ca.cours5b5.williamsarrazin.R;
 import ca.cours5b5.williamsarrazin.global.GConstantes;
 
 public class VParametres extends Vue {
+
+    static{
+        Log.d("Atelier04",  VParametres.class + "::static");
+    }
 
     private Spinner spinnerHauteur;
     private Spinner spinnerLargeur;

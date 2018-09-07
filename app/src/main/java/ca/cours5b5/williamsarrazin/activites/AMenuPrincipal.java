@@ -7,8 +7,13 @@ import android.view.View;
 import android.widget.Button;
 
 import ca.cours5b5.williamsarrazin.R;
+import ca.cours5b5.williamsarrazin.vues.VParametres;
 
 public class AMenuPrincipal extends Activite {
+
+    static{
+        Log.d("Atelier04",  AMenuPrincipal.class.getSimpleName() + "::static");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +31,4 @@ public class AMenuPrincipal extends Activite {
         });
 
     }
-
 }

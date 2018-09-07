@@ -6,10 +6,14 @@ import android.util.Log;
 import android.widget.Button;
 
 import ca.cours5b5.williamsarrazin.R;
+import ca.cours5b5.williamsarrazin.vues.VParametres;
 
 
 public class AParametres extends Activite {
 
+    static{
+        Log.d("Atelier04",  AParametres.class + "::static");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

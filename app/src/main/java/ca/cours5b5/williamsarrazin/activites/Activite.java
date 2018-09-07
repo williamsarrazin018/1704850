@@ -12,6 +12,7 @@ public abstract class Activite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        Log.d("Atelier04",  this.getClass().getSimpleName() + "::onCreate");
 
     }
 
@@ -19,6 +20,7 @@ public abstract class Activite extends AppCompatActivity {
     protected void onResume() {
 
         super.onResume();
+        Log.d("Atelier04",  this.getClass().getSimpleName() + "::onResume");
 
     }
 
@@ -26,6 +28,7 @@ public abstract class Activite extends AppCompatActivity {
     protected void onPause() {
 
         super.onPause();
+        Log.d("Atelier04",  this.getClass().getSimpleName() + "::onPause");
 
     }
 
@@ -33,13 +36,14 @@ public abstract class Activite extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
 
         super.onSaveInstanceState(outState);
+        Log.d("Atelier04",  this.getClass().getSimpleName() + "::onSaveInstanceState");
     }
 
     @Override
     protected void onDestroy() {
 
         super.onDestroy();
-
+        Log.d("Atelier04",  this.getClass().getSimpleName() + "::onDestroy");
     }
 
 
