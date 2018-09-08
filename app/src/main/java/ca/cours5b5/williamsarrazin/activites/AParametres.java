@@ -27,4 +27,17 @@ public class AParametres extends Activite {
     }
 
 
+    private void restaurerParametres( Bundle savedInstanceState){
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    private void sauvegarderParametres(Bundle outState) {
+
+    }
+
 }

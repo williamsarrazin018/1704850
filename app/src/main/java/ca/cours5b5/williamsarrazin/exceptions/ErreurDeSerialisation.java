@@ -2,7 +2,7 @@ package ca.cours5b5.williamsarrazin.exceptions;
 
 public class ErreurDeSerialisation extends RuntimeException {
 
-    public ErreurDeSerialisation(Exception e){
+    public ErreurDeSerialisation(String message){
 
     }
 

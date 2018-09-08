@@ -2,6 +2,7 @@ package ca.cours5b5.williamsarrazin.modeles;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import ca.cours5b5.williamsarrazin.global.GConstantes;
 import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
@@ -13,36 +14,32 @@ public class MParametres extends Modele{
 
     @AttributSerialisable
     public Integer hauteur;
+    public final String __hauteur = "hauteur";
 
     @AttributSerialisable
     public Integer largeur;
+    public final String __largeur = "largeur";
 
     @AttributSerialisable
     public Integer pourGagner;
+    public final String __pourGagner = "pourGagner";
 
-    private List<Integer> choixHauteur;
-    private List<Integer> choixLargeur;
-    private List<Integer> choixPourGagner;
+    //private List<Integer> choixHauteur;
+    //private List<Integer> choixLargeur;
+    //private List<Integer> choixPourGagner;
 
 
-    public MParametres(){
-
-        genererListeChoixHauteur();
-        genererListeChoixLargeur();
-        genererListeChoixPourGagner();
-
-    }
 
     public List<Integer> getChoixHauteur(){
-        return choixHauteur;
+        return null;
     }
 
     public List<Integer> getChoixLargeur(){
-        return choixLargeur;
+        return null;
     }
 
     public List<Integer> getChoixPourGagner(){
-        return choixPourGagner;
+        return null;
     }
 
     public Integer getHauteur() {
@@ -75,43 +72,14 @@ public class MParametres extends Modele{
 
     }
 
-    private void genererListeChoixHauteur(){
 
-        List<Integer> listeChoix = new ArrayList<Integer>();
-
-        for (int i = GConstantes.HAUTEUR_MIN; i <= GConstantes.HAUTEUR_MAX; i++) {
-            listeChoix.add(i);
-        }
-
-        this.setHauteur(2);
-        choixHauteur = listeChoix;
-
+    @Override
+    public void aPartirObjetJson(Map<String, Object> objetJson) {
 
     }
 
-    private void genererListeChoixLargeur(){
-
-        List<Integer> listeChoix = new ArrayList<Integer>();
-
-        for (int i = GConstantes.LARGEUR_MIN; i <= GConstantes.LARGEUR_MAX; i++) {
-            listeChoix.add(i);
-        }
-
-        this.setLargeur(2);
-        choixLargeur = listeChoix;
-
-    }
-
-    private void genererListeChoixPourGagner(){
-
-        List<Integer> listeChoix = new ArrayList<Integer>();
-
-        for (int i = GConstantes.GAGNER_MIN; i <= GConstantes.GAGNER_MAX; i++) {
-            listeChoix.add(i);
-        }
-
-        this.setPourGagner(2);
-        choixPourGagner = listeChoix;
-
+    @Override
+    public Map<String, Object> enObjetJson() {
+        return null;
     }
 }
