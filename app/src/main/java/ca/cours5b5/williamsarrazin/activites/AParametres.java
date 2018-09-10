@@ -1,12 +1,13 @@
 package ca.cours5b5.williamsarrazin.activites;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
+
+import java.util.Map;
 
 import ca.cours5b5.williamsarrazin.R;
-import ca.cours5b5.williamsarrazin.vues.VParametres;
+import ca.cours5b5.williamsarrazin.modeles.MParametres;
+import ca.cours5b5.williamsarrazin.serialisation.Jsonification;
 
 
 public class AParametres extends Activite {
@@ -33,10 +34,20 @@ public class AParametres extends Activite {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+
         super.onSaveInstanceState(outState);
+
+        Map<String, Object> objetJson = MParametres.instance.enObjetJson();
+
+        String json = Jsonification.enChaine(objetJson);
+
+        //outState.putInt(MParametres.instance.__hauteur, json);
+
     }
 
     private void sauvegarderParametres(Bundle outState) {
+
+
 
     }
 

@@ -4,42 +4,62 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import ca.cours5b5.williamsarrazin.global.GConstantes;
 import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
 
 public class MParametres extends Modele{
 
     //FIXME: C'est temporaire ; on va écrire un gestionnaire de modèles dans l'atelier 7
-    public static MParametres instance;
+    public static MParametres instance = new MParametres();
 
     @AttributSerialisable
-    public Integer hauteur;
+    public Integer hauteur = 6;
     public final String __hauteur = "hauteur";
 
     @AttributSerialisable
-    public Integer largeur;
+    public Integer largeur = 7;
     public final String __largeur = "largeur";
 
     @AttributSerialisable
-    public Integer pourGagner;
+    public Integer pourGagner = 4;
     public final String __pourGagner = "pourGagner";
 
-    //private List<Integer> choixHauteur;
-    //private List<Integer> choixLargeur;
-    //private List<Integer> choixPourGagner;
+    public MParametres() {
 
+    }
 
+    public List<Integer> getChoixHauteur() {
+        List<Integer> liste = new ArrayList<Integer>();
 
-    public List<Integer> getChoixHauteur(){
-        return null;
+        for (int i = 4; i < 11; i++) {
+            liste.add(i);
+        }
+
+        return liste;
+
     }
 
     public List<Integer> getChoixLargeur(){
-        return null;
+
+        List<Integer> liste = new ArrayList<Integer>();
+
+        for (int i = 4; i < 11; i++) {
+            liste.add(i);
+        }
+
+        return liste;
+
     }
 
     public List<Integer> getChoixPourGagner(){
-        return null;
+
+        List<Integer> liste = new ArrayList<Integer>();
+
+        for (int i = 3; i < 5; i++) {
+            liste.add(i);
+        }
+
+        return liste;
+
     }
 
     public Integer getHauteur() {
@@ -53,6 +73,7 @@ public class MParametres extends Modele{
     public Integer getPourGagner() {
         return pourGagner;
     }
+
 
     public void setHauteur(int hauteur){
 
