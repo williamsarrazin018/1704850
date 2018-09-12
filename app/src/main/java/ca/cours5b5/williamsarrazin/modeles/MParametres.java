@@ -97,15 +97,6 @@ public class MParametres extends Modele{
     @Override
     public void aPartirObjetJson(Map<String, Object> objetJson) {
 
-        for (Map.Entry<String, Object> entry : objetJson.entrySet()){
-
-            String cle = entry.getKey();
-            Object valeur = entry.getValue();
-
-            //si cle hauteur set hauteur , etc
-
-        }
-
     }
 
     @Override
