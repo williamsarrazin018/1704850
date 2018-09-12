@@ -1,6 +1,7 @@
 package ca.cours5b5.williamsarrazin.modeles;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -97,10 +98,33 @@ public class MParametres extends Modele{
     @Override
     public void aPartirObjetJson(Map<String, Object> objetJson) {
 
+        for ( Map.Entry<String, Object> entry : objetJson.entrySet() ) {
+
+            String cle = entry.getKey();
+            Object valeur = entry.getValue();
+
+            if (cle.equals(__hauteur)) {
+                setHauteur(Integer.valueOf((String)entry.getValue()));
+            } else if (cle.equals(__largeur)) {
+                setLargeur(Integer.valueOf((String)entry.getValue()));
+            } else if(cle.equals(__pourGagner)) {
+                setPourGagner(Integer.valueOf((String)entry.getValue()));
+            }
+
+        }
+
+
     }
 
     @Override
     public Map<String, Object> enObjetJson() {
-        return null;
+
+        Map<String, Object> objetJson = new HashMap<String, Object>();
+
+        objetJson.put(__hauteur, hauteur.toString());
+        objetJson.put(__largeur, largeur.toString());
+        objetJson.put(__pourGagner, pourGagner.toString());
+
+        return objetJson;
     }
 }
