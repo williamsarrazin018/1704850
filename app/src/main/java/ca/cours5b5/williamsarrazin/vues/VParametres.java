@@ -44,7 +44,6 @@ public class VParametres extends Vue {
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-
         //Hauteur
         spinnerHauteur = this.findViewById(R.id.spinnerHauteur);
 
@@ -60,9 +59,11 @@ public class VParametres extends Vue {
         while (iterateurHauteur.hasNext()) {
             Integer valeur = iterateurHauteur.next();
             adapterHauteur.add(valeur + "");
+
             if (valeur == MParametres.instance.getHauteur()) {
                 spinnerHauteur.setSelection(cpt);
             }
+
             cpt++;
         }
 

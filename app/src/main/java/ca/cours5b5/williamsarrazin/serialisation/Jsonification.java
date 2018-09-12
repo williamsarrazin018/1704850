@@ -7,14 +7,20 @@ import java.util.Map;
 
 public class Jsonification {
 
-    private static Gson gson;
+    private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public static Map<String, Object> enObjetJson(String json){
-        return null;
+
+        Map<String, Object> objetJson = gson.fromJson(json, Map.class);
+
+        return objetJson;
     }
 
     public static String enChaine(Map<String, Object> objetJson){
-        return null;
+
+        String chaineJson = gson.toJson(objetJson);
+
+        return chaineJson;
     }
 
 }
