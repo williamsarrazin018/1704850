@@ -3,8 +3,6 @@ package ca.cours5b5.williamsarrazin.activites;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import ca.cours5b5.williamsarrazin.R;
 
@@ -24,14 +22,6 @@ public class AMenuPrincipal extends Activite {
     protected void onResume() {
         super.onResume();
 
-        // FIXME: c'est temporaire, ça va dans une action (MVC)
-        Button bouton = this.findViewById(R.id.button);
-        bouton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                transitionParametres();
-            }
-        });
     }
 
     private void transitionParametres(){

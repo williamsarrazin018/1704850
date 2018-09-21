@@ -7,11 +7,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ca.cours5b5.williamsarrazin.controleurs.ControleurAction;
+import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
+import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerFournisseur;
 import ca.cours5b5.williamsarrazin.exceptions.ErreurSerialisation;
+import ca.cours5b5.williamsarrazin.global.GCommande;
 import ca.cours5b5.williamsarrazin.global.GConstantes;
 import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
 
-public class MParametres extends Modele {
+public class MParametres extends Modele implements Fournisseur {
 
     // FIXME: c'est temporaire ; on va écrire un gestionnaire de modèles à l'Atelier07
     public static MParametres instance;
@@ -40,6 +44,13 @@ public class MParametres extends Modele {
 
     public MParametres(){
         super();
+
+        ControleurAction.fournirAction(this, GCommande.OUVRIR_MENU_PARAMETRES, new ListenerFournisseur() {
+            @Override
+            public void executer(Object... args) {
+
+            }
+        });
 
         hauteur = GConstantes.HAUTEUR_PAR_DEFAUT;
         largeur = GConstantes.LARGEUR_PAR_DEFAUT;
