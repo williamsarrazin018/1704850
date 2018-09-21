@@ -1,66 +1,63 @@
 package ca.cours5b5.williamsarrazin.modeles;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ca.cours5b5.williamsarrazin.exceptions.ErreurSerialisation;
+import ca.cours5b5.williamsarrazin.global.GConstantes;
 import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
 
-public class MParametres extends Modele{
+public class MParametres extends Modele {
 
-    //FIXME: C'est temporaire ; on va écrire un gestionnaire de modèles dans l'atelier 7
-    public static MParametres instance = new MParametres();
+    // FIXME: c'est temporaire ; on va écrire un gestionnaire de modèles à l'Atelier07
+    public static MParametres instance;
 
-    @AttributSerialisable
-    public Integer hauteur = 6;
-    public final String __hauteur = "hauteur";
+    static{
+        Log.d("Atelier04", MParametres.class.getSimpleName() + "::static");
 
-    @AttributSerialisable
-    public Integer largeur = 7;
-    public final String __largeur = "largeur";
-
-    @AttributSerialisable
-    public Integer pourGagner = 4;
-    public final String __pourGagner = "pourGagner";
-
-    public MParametres() {
-
+        instance = new MParametres();
     }
 
-    public List<Integer> getChoixHauteur() {
-        List<Integer> liste = new ArrayList<Integer>();
+    @AttributSerialisable
+    public Integer hauteur;
+    private final String __hauteur = "hauteur";
 
-        for (int i = 4; i < 11; i++) {
-            liste.add(i);
-        }
+    @AttributSerialisable
+    public Integer largeur;
+    private final String __largeur = "largeur";
 
-        return liste;
+    @AttributSerialisable
+    public Integer pourGagner;
+    private final String __pourGagner = "pourGagner";
 
+    private List<Integer> choixHauteur;
+    private List<Integer> choixLargeur;
+    private List<Integer> choixPourGagner;
+
+    public MParametres(){
+        super();
+
+        hauteur = GConstantes.HAUTEUR_PAR_DEFAUT;
+        largeur = GConstantes.LARGEUR_PAR_DEFAUT;
+        pourGagner = GConstantes.POUR_GAGNER_PAR_DEFAUT;
+
+        genererListesDeChoix();
+    }
+
+    public List<Integer> getChoixHauteur(){
+        return choixHauteur;
     }
 
     public List<Integer> getChoixLargeur(){
-
-        List<Integer> liste = new ArrayList<Integer>();
-
-        for (int i = 4; i < 11; i++) {
-            liste.add(i);
-        }
-
-        return liste;
-
+        return choixLargeur;
     }
 
     public List<Integer> getChoixPourGagner(){
-
-        List<Integer> liste = new ArrayList<Integer>();
-
-        for (int i = 3; i < 5; i++) {
-            liste.add(i);
-        }
-
-        return liste;
-
+        return choixPourGagner;
     }
 
     public Integer getHauteur() {
@@ -75,56 +72,87 @@ public class MParametres extends Modele{
         return pourGagner;
     }
 
-
-    public void setHauteur(int hauteur){
-
+    public void setHauteur(int hauteur) {
         this.hauteur = hauteur;
-
     }
 
-    public void setLargeur(int largeur){
-
+    public void setLargeur(int largeur) {
         this.largeur = largeur;
-
     }
 
-    public void setPourGagner(int pourGagner){
-
+    public void setPourGagner(int pourGagner) {
         this.pourGagner = pourGagner;
-
     }
 
+    private void genererListesDeChoix(){
+        genererListeChoixHauteur();
+        genererListeChoixLargeur();
+        genererListeChoixPourGagner();
+    }
 
-    @Override
-    public void aPartirObjetJson(Map<String, Object> objetJson) {
+    private List<Integer> genererListeChoix(int min, int max){
+        List<Integer> listeChoix = new ArrayList<>();
 
-        for ( Map.Entry<String, Object> entry : objetJson.entrySet() ) {
-
-            String cle = entry.getKey();
-            Object valeur = entry.getValue();
-
-            if (cle.equals(__hauteur)) {
-                setHauteur(Integer.valueOf((String)entry.getValue()));
-            } else if (cle.equals(__largeur)) {
-                setLargeur(Integer.valueOf((String)entry.getValue()));
-            } else if(cle.equals(__pourGagner)) {
-                setPourGagner(Integer.valueOf((String)entry.getValue()));
-            }
-
+        for(int i = min; i <= max; i++){
+            listeChoix.add(i);
         }
 
+        return listeChoix;
+    }
 
+    private void genererListeChoixHauteur(){
+        choixHauteur = genererListeChoix(GConstantes.HAUTEUR_MIN, GConstantes.HAUTEUR_MAX);
+    }
+
+    private void genererListeChoixLargeur(){
+        choixLargeur = genererListeChoix(GConstantes.LARGEUR_MIN, GConstantes.LARGEUR_MAX);
+    }
+
+    private void genererListeChoixPourGagner(){
+        choixPourGagner = genererListeChoix(GConstantes.POUR_GAGNER_MIN, GConstantes.POUR_GAGNER_MAX);
     }
 
     @Override
-    public Map<String, Object> enObjetJson() {
+    public void aPartirObjetJson(Map<String, Object> objetJson) throws ErreurSerialisation{
+        for(Map.Entry<String, Object> entry : objetJson.entrySet()){
 
-        Map<String, Object> objetJson = new HashMap<String, Object>();
+            String chaineValeur = (String) entry.getValue();
+
+            switch (entry.getKey()){
+
+                case __hauteur:
+
+                    hauteur = Integer.valueOf(chaineValeur);
+                    break;
+
+                case __largeur:
+
+                    largeur = Integer.valueOf(chaineValeur);
+                    break;
+
+
+                case __pourGagner:
+
+                    largeur = Integer.valueOf(chaineValeur);
+                    break;
+
+                default:
+
+                    throw new ErreurSerialisation("Attribut inconnu: " + entry.getKey());
+            }
+        }
+    }
+
+
+    @Override
+    public Map<String, Object> enObjetJson() throws ErreurSerialisation {
+        Map<String, Object> objetJson = new HashMap<>();
 
         objetJson.put(__hauteur, hauteur.toString());
         objetJson.put(__largeur, largeur.toString());
         objetJson.put(__pourGagner, pourGagner.toString());
 
         return objetJson;
+
     }
 }

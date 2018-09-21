@@ -18,11 +18,10 @@ public abstract class Vue extends ConstraintLayout {
         super(context, attrs, defStyleAttr);
     }
 
-
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        Log.d("Atelier04",  this.getClass().getSimpleName() + "::OnFinishInflate");
-    }
 
+        Log.d("Atelier04", this.getClass().getSimpleName() + "::" +  "onFinishInflate");
+    }
 }

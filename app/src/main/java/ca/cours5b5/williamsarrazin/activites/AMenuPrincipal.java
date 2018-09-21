@@ -7,28 +7,36 @@ import android.view.View;
 import android.widget.Button;
 
 import ca.cours5b5.williamsarrazin.R;
-import ca.cours5b5.williamsarrazin.vues.VParametres;
 
 public class AMenuPrincipal extends Activite {
 
     static{
-        Log.d("Atelier04",  AMenuPrincipal.class.getSimpleName() + "::static");
+        Log.d("Atelier04", AMenuPrincipal.class.getSimpleName() + "::static");
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menuprincipal);
+        setContentView(R.layout.activity_menu_principal);
+    }
 
-        Button boutonParametres = this.findViewById(R.id.buttonParametres);
-        final Intent ouvrirParametres = new Intent(this, AParametres.class);
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-        boutonParametres.setOnClickListener(new View.OnClickListener() {
+        // FIXME: c'est temporaire, ça va dans une action (MVC)
+        Button bouton = this.findViewById(R.id.button);
+        bouton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(ouvrirParametres);
+                transitionParametres();
             }
         });
-
     }
+
+    private void transitionParametres(){
+        Intent intentionParametres = new Intent(this, AParametres.class);
+        startActivity(intentionParametres);
+    }
+
 }

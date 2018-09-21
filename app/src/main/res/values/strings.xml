@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">WilliamSarrazin</string>
-    <string name="message_bienvenue">Bonjour!</string>
-    <string name="orientation">portrait</string>
-    <string name="largeur">Largeur : </string>
-    <string name="hauteur">Hauteur : </string>
-    <string name="pourgagner">Pour gagner : </string>
-    <string name="parametres">PARAMÈTRES</string>
+    <string name="bonjour">Bonjour!</string>
+
+    <string name="paysage">paysage</string>
+    <string name="portrait">portrait</string>
+
+    <string name="hauteur">Hauteur: </string>
+    <string name="largeur">Largeur: </string>
+    <string name="pour_gagner">Pour gagner: </string>
+
+    <string name="parametres">Parametres</string>
+
 </resources>

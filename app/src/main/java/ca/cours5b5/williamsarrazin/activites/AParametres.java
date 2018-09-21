@@ -1,5 +1,6 @@
 package ca.cours5b5.williamsarrazin.activites;
 
+
 import android.os.Bundle;
 import android.util.Log;
 
@@ -12,75 +13,54 @@ import ca.cours5b5.williamsarrazin.serialisation.Jsonification;
 
 public class AParametres extends Activite {
 
-
-
     static{
-        Log.d("Atelier04",  AParametres.class + "::static");
+        Log.d("Atelier04", AParametres.class.getSimpleName() + "::static");
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_parametres);
 
-        if (savedInstanceState != null) {
-
+        if(savedInstanceState != null){
             restaurerParametres(savedInstanceState);
-
         }
-
-
-
-        Log.d("Bonjour",  this.getResources().getString(R.string.message_bienvenue) + this.getResources().getString(R.string.orientation));
-
-
-
     }
 
+    private void restaurerParametres(Bundle savedInstanceState){
 
-    private void restaurerParametres( Bundle savedInstanceState){
+        String cle = MParametres.class.getSimpleName();
+        String json = savedInstanceState.getString(cle);
 
-        String json = savedInstanceState.getString("cleModele");
+        Log.d("Atelier05", AParametres.class.getSimpleName() + "::restaurerParametres, clé: " + cle);
+        Log.d("Atelier05", AParametres.class.getSimpleName() + "::restaurerParametres, json:\n" + json);
 
-        Map<String, Object> objetJson = Jsonification.enObjetJson(json);
+        Map<String, Object> objetJson = Jsonification.aPartirChaineJson(json);
+
+        MParametres.instance = new MParametres();
 
         MParametres.instance.aPartirObjetJson(objetJson);
-
-        Log.d("MParametres",  "AParametres::restaurerParametres" + json);
 
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-
         super.onSaveInstanceState(outState);
 
         sauvegarderParametres(outState);
 
     }
 
+    private void sauvegarderParametres(Bundle outState){
 
-    private void sauvegarderParametres(Bundle outState) {
-
+        String cle = MParametres.class.getSimpleName();
         Map<String, Object> objetJson = MParametres.instance.enObjetJson();
 
-        String json = Jsonification.enChaine(objetJson);
+        String json = Jsonification.enChaineJson(objetJson);
 
-        outState.putString("cleModele", json);
+        Log.d("Atelier05", AParametres.class.getSimpleName() + "::sauvegarderParametres, clé: " + cle);
+        Log.d("Atelier05", AParametres.class.getSimpleName() + "::sauvegarderParametres, json: \n" + json);
 
-        Log.d("MParametres",  "AParametres::sauvegarderParametres" + json);
-
-
+        outState.putString(cle, json);
     }
-
-    @Override
-    protected void onDestroy() {
-
-        super.onDestroy();
-        Log.d("Atelier04",  this.getClass().getSimpleName() + "::onDestroy");
-    }
-
-
-
 }
