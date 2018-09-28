@@ -18,13 +18,20 @@ import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
 public class MParametres extends Modele implements Fournisseur {
 
     // FIXME: c'est temporaire ; on va écrire un gestionnaire de modèles à l'Atelier07
-    public static MParametres instance;
+    public static MParametres instance = new MParametres();
 
     static{
         Log.d("Atelier04", MParametres.class.getSimpleName() + "::static");
 
-        instance = new MParametres();
     }
+
+    @AttributSerialisable
+    public MParametresPartie parametresPartie;
+    private String __parametresPartie = "parametresPartie";
+
+    private List<Integer> choixHauteur;
+    private List<Integer> choixLargeur;
+    private List<Integer> choixPourGagner;
 
     @AttributSerialisable
     public Integer hauteur;
@@ -38,9 +45,7 @@ public class MParametres extends Modele implements Fournisseur {
     public Integer pourGagner;
     private final String __pourGagner = "pourGagner";
 
-    private List<Integer> choixHauteur;
-    private List<Integer> choixLargeur;
-    private List<Integer> choixPourGagner;
+
 
     public MParametres(){
         super();
@@ -93,6 +98,10 @@ public class MParametres extends Modele implements Fournisseur {
 
     public void setPourGagner(int pourGagner) {
         this.pourGagner = pourGagner;
+    }
+
+    public MParametresPartie getParametresPartie() {
+        return parametresPartie;
     }
 
     private void genererListesDeChoix(){

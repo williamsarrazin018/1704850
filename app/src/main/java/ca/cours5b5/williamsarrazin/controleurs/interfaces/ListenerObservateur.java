@@ -2,8 +2,12 @@ package ca.cours5b5.williamsarrazin.controleurs.interfaces;
 
 import ca.cours5b5.williamsarrazin.modeles.Modele;
 
-public interface ListenerObservateur {
+public abstract class ListenerObservateur {
 
-    void reagirChangementAuModele(Modele modele);
+    public void reagirNouveauModele(Modele modele) {
+        reagirNouveauModele(modele);
+    }
+
+    public abstract void reagirChangementModele(Modele modele);
 
 }

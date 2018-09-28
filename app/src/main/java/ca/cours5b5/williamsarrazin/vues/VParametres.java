@@ -1,7 +1,6 @@
 package ca.cours5b5.williamsarrazin.vues;
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +11,10 @@ import android.widget.Spinner;
 import java.util.List;
 
 import ca.cours5b5.williamsarrazin.R;
+import ca.cours5b5.williamsarrazin.controleurs.ControleurObservation;
+import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerObservateur;
 import ca.cours5b5.williamsarrazin.modeles.MParametres;
+import ca.cours5b5.williamsarrazin.modeles.Modele;
 
 
 public class VParametres extends Vue {
@@ -45,6 +47,20 @@ public class VParametres extends Vue {
 
         initialiser();
         afficherLesChoix();
+
+
+
+        ControleurObservation.observerModele(MParametres.class.getSimpleName(),
+                new ListenerObservateur() {
+                    @Override
+                    public void reagirChangementModele(Modele modele) {
+                        afficherLesChoix();
+                    }
+                });
+
+
+
+
     }
 
     private void initialiser(){

@@ -95,7 +95,7 @@ public class ControleurAction {
 
         if(action.fournisseur instanceof Modele){
 
-            ControleurObservation.lancerObservation((Modele) action.fournisseur);
+           // ControleurObservation.lancerObservation((Modele) action.fournisseur);
 
         }
 
