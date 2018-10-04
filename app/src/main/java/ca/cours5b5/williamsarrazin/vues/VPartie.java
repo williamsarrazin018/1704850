@@ -32,6 +32,8 @@ public class VPartie extends Vue{
 
     private void initialiser(){
 
+        observerPartie();
+
     }
 
     private void observerPartie(){
@@ -47,6 +49,9 @@ public class VPartie extends Vue{
     }
 
     private MPartie getPartie(Modele modele){
+
+
+
         return null;
     }
 

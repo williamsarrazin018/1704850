@@ -2,14 +2,22 @@ package ca.cours5b5.williamsarrazin.vues;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.widget.GridLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import ca.cours5b5.williamsarrazin.R;
+import ca.cours5b5.williamsarrazin.modeles.MParametres;
 
 public class VGrille extends GridLayout {
+
+    private GridLayout layout = this.findViewById(R.id.grilleLayout);
+
+    private int largeur;
+
+    private int hauteur;
 
     public VGrille(Context context) {
         super(context);
@@ -23,13 +31,23 @@ public class VGrille extends GridLayout {
         super(context, attrs, defStyleAttr);
     }
 
-    GridLayout layout = this.findViewById(R.layout.);
-
     private int nombreRangees;
 
-    private class colonne extends ArrayList<VCase> {}
+    private class Colonne extends ArrayList<VCase> {
+
+        private int colonne;
+
+        public Colonne( int colonne) {
+
+            this.colonne = colonne;
+
+        }
+
+    }
 
     private List<VEntete> entetes;
+
+    private List<Colonne> colonnesDeCases;
 
     @Override
     protected void onFinishInflate(){
@@ -38,14 +56,27 @@ public class VGrille extends GridLayout {
     }
 
     private void initialiser(){
+        int largeur = MParametres.instance.getParametresPartie().largeur;
+        int hauteur = MParametres.instance.getParametresPartie().hauteur;
 
     }
 
     void creerGrille(int hauteur, int largeur) {
 
+        initialiserColonnes(largeur);
+
+
+
     }
 
     private void initialiserColonnes(int largeur){
+        colonnesDeCases = new ArrayList<>();
+        for (int i = 0; i < largeur; i++) {
+
+            colonnesDeCases.add(new Colonne(i));
+
+        }
+
 
     }
 
@@ -54,6 +85,7 @@ public class VGrille extends GridLayout {
     }
 
     private LayoutParams getMiseEnPageCase(int colonne){
+
         return null;
     }
 
@@ -62,6 +94,14 @@ public class VGrille extends GridLayout {
     }
 
     private LayoutParams getMiseEnPage(int rangee, int colonne){
-        return null;
+
+        LayoutParams params = new LayoutParams();
+
+        params.width = 0;
+        params.height = 0;
+        params.setGravity(Gravity.FILL);
+
+
+        return params;
     }
 }
