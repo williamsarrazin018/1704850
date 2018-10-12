@@ -2,10 +2,12 @@ package ca.cours5b5.williamsarrazin.vues;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.GridLayout;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import ca.cours5b5.williamsarrazin.R;
@@ -13,7 +15,7 @@ import ca.cours5b5.williamsarrazin.modeles.MParametres;
 
 public class VGrille extends GridLayout {
 
-    private GridLayout layout = this.findViewById(R.id.grilleLayout);
+    private GridLayout layout;
 
     private int largeur;
 
@@ -33,37 +35,67 @@ public class VGrille extends GridLayout {
 
     private int nombreRangees;
 
-    private class Colonne extends ArrayList<VCase> {
+    public class Colonne extends ArrayList<VCase> {
 
-        private int colonne;
+        private VEntete entete;
+        private int id;
 
-        public Colonne( int colonne) {
 
-            this.colonne = colonne;
+        public Colonne( int id) {
+
+            this.id = id;
+
 
         }
+
+        public VEntete getEntete() {
+            return entete;
+        }
+
+        public void setEntete(Context contexte, int entete) {
+            this.entete = new VEntete(contexte, entete);
+        }
+
+        public int getId() {
+            return id;
+        }
+
 
     }
 
     private List<VEntete> entetes;
 
-    private List<Colonne> colonnesDeCases;
+    private List<Colonne> colonnesDeCases = new ArrayList<>();
 
     @Override
     protected void onFinishInflate(){
-
+        Log.d("grid", "Grid:Onfinishinflate");
         super.onFinishInflate();
+        initialiser();
     }
 
-    private void initialiser(){
-        int largeur = MParametres.instance.getParametresPartie().largeur;
-        int hauteur = MParametres.instance.getParametresPartie().hauteur;
+    public void initialiser(){
+        layout = this.findViewById(R.id.grilleLayout);
+        int largeur = MParametres.instance.getLargeur();
+        int hauteur = MParametres.instance.getHauteur();
+
+        layout.setColumnCount(largeur);
+        layout.setRowCount(hauteur);
+
+        creerGrille(hauteur, largeur);
+
+        for (int i = 0; i < largeur; i++) {
+            layout.addView(colonnesDeCases.get(i).getEntete(), getMisenEnPageEntete(i));
+        }
+
 
     }
 
     void creerGrille(int hauteur, int largeur) {
 
         initialiserColonnes(largeur);
+        ajouterEnTetes( largeur);
+        ajouterCases(hauteur, largeur);
 
 
 
@@ -78,30 +110,66 @@ public class VGrille extends GridLayout {
         }
 
 
+
+
     }
 
     private void ajouterEnTetes(int largeur){
 
+       Iterator<Colonne> iterateur = colonnesDeCases.iterator();
+
+       int cpt = 0;
+
+       while (iterateur.hasNext()) {
+
+           Colonne col = iterateur.next();
+
+         col.setEntete(this.getContext(), col.getId());
+
+       }
+
     }
 
-    private LayoutParams getMiseEnPageCase(int colonne){
+    private LayoutParams getMiseEnPageCase(int colonne, int rangee){
 
         return null;
     }
 
     private void ajouterCases(int hauteur, int largeur){
 
+        Iterator<Colonne> iterateur = colonnesDeCases.iterator();
+
+        int cpt = 0;
+
+        while (iterateur.hasNext()) {
+
+            Colonne col = iterateur.next();
+
+            for (int i = 0; i < hauteur; i++) {
+
+                col.add(new VCase(this.getContext(), i, col.getId()));
+
+            }
+
+        }
+
+
     }
 
-    private LayoutParams getMiseEnPage(int rangee, int colonne){
+    private LayoutParams getMisenEnPageEntete(int colonne){
 
         LayoutParams params = new LayoutParams();
+        Spec specRangee = GridLayout.spec(0, GridLayout.FILL);
+        Spec specColonne = GridLayout.spec(colonne, GridLayout.FILL);
 
-        params.width = 0;
-        params.height = 0;
+        params = new LayoutParams(specRangee, specColonne);
+
         params.setGravity(Gravity.FILL);
 
 
         return params;
+    }
+    public GridLayout getLayout(){
+        return layout;
     }
 }
