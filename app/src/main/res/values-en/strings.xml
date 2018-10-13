@@ -8,6 +8,9 @@
     <string name="hauteur">Height: </string>
     <string name="largeur">Width: </string>
     <string name="pour_gagner">To win: </string>
+    <string name="jouer">PLAY</string>
+    <string name="joueur1">Player 1</string>
+    <string name="joueur2">Player 2</string>
 
     <string name="parametres">Parameters</string>
 

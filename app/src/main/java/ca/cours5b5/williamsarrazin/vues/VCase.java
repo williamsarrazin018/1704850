@@ -19,7 +19,7 @@ public class VCase extends AppCompatButton {
 
     public VCase(Context context, int rangee, int colonne){
         super(context);
-
+        this.setTextSize(10.0f);
         this.setText(rangee + ", " + colonne);
 
 

@@ -22,7 +22,9 @@ public class VEntete extends AppCompatButton {
     public VEntete(Context context, int colonne){
         super(context);
 
-        this.setText(colonne + "");
+        String fleche = "\u2193";
+
+        this.setText(colonne + "\n" + fleche + "\n" + fleche);
 
     }
 }

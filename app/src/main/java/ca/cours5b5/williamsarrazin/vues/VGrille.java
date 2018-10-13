@@ -80,12 +80,26 @@ public class VGrille extends GridLayout {
         int hauteur = MParametres.instance.getHauteur();
 
         layout.setColumnCount(largeur);
-        layout.setRowCount(hauteur);
+        layout.setRowCount(hauteur + 1);
 
         creerGrille(hauteur, largeur);
 
         for (int i = 0; i < largeur; i++) {
             layout.addView(colonnesDeCases.get(i).getEntete(), getMisenEnPageEntete(i));
+        }
+
+        int col = 0;
+        int rangee = 1;
+
+        for (int i = 0; i < largeur; i++) {
+            rangee = 1;
+
+            for (int j = hauteur - 1; j > -1; j--) {
+                layout.addView(colonnesDeCases.get(i).get(j), getMiseEnPageCase(col, rangee));
+                rangee++;
+            }
+            col++;
+
         }
 
 
@@ -132,7 +146,18 @@ public class VGrille extends GridLayout {
 
     private LayoutParams getMiseEnPageCase(int colonne, int rangee){
 
-        return null;
+
+        LayoutParams params = new LayoutParams();
+        Spec specRangee = GridLayout.spec(rangee, 1f);
+        Spec specColonne = GridLayout.spec(colonne, 1f);
+
+        params = new LayoutParams(specRangee, specColonne);
+        params.width = 0;
+        params.height = 0;
+        params.setGravity(Gravity.FILL);
+
+
+        return params;
     }
 
     private void ajouterCases(int hauteur, int largeur){
@@ -159,11 +184,12 @@ public class VGrille extends GridLayout {
     private LayoutParams getMisenEnPageEntete(int colonne){
 
         LayoutParams params = new LayoutParams();
-        Spec specRangee = GridLayout.spec(0, GridLayout.FILL);
-        Spec specColonne = GridLayout.spec(colonne, GridLayout.FILL);
+        Spec specRangee = GridLayout.spec(0, 3f);
+        Spec specColonne = GridLayout.spec(colonne, 3f);
 
         params = new LayoutParams(specRangee, specColonne);
-
+        params.width = 0;
+        params.height = 0;
         params.setGravity(Gravity.FILL);
 
 
