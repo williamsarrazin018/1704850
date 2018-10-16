@@ -15,9 +15,7 @@ public class VMenuPrincipal extends Vue {
 
     public VMenuPrincipal(Context context) {
 
-
         super(context);
-
 
     }
 
@@ -28,8 +26,6 @@ public class VMenuPrincipal extends Vue {
     public VMenuPrincipal(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
-
 
 
 }

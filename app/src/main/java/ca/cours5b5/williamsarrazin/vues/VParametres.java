@@ -46,20 +46,8 @@ public class VParametres extends Vue {
         super.onFinishInflate();
 
         initialiser();
+
         afficherLesChoix();
-
-
-
-        ControleurObservation.observerModele(MParametres.class.getSimpleName(),
-                new ListenerObservateur() {
-                    @Override
-                    public void reagirChangementModele(Modele modele) {
-                        afficherLesChoix();
-                    }
-                });
-
-
-
 
     }
 
@@ -76,7 +64,7 @@ public class VParametres extends Vue {
     }
 
     private void initialiserSpinner(Spinner spinner){
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<>(getContext(), R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(getContext(), R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
     }
 
@@ -91,8 +79,8 @@ public class VParametres extends Vue {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int leChoix = (int) parent.getAdapter().getItem(position);
-
-                MParametres.instance.setHauteur(leChoix);
+                //De la partie
+                MParametres.instance.parametresPartie.setHauteur(leChoix);
 
             }
 
@@ -108,8 +96,8 @@ public class VParametres extends Vue {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int leChoix = (int) parent.getAdapter().getItem(position);
-
-                MParametres.instance.setLargeur(leChoix);
+                //De la partie
+                MParametres.instance.parametresPartie.setLargeur(leChoix);
 
             }
 
@@ -125,8 +113,8 @@ public class VParametres extends Vue {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int leChoix = (int) parent.getAdapter().getItem(position);
-
-                MParametres.instance.setPourGagner(leChoix);
+                //De la partie
+                MParametres.instance.parametresPartie.setPourGagner(leChoix);
 
             }
 
@@ -146,19 +134,22 @@ public class VParametres extends Vue {
     private void afficherChoixHauteur(){
         mettreAJourSpinner(spinnerHauteur,
                 MParametres.instance.getChoixHauteur(),
-                MParametres.instance.getHauteur());
+                //De la partie
+                MParametres.instance.parametresPartie.getHauteur());
     }
 
     private void afficherChoixLargeur(){
         mettreAJourSpinner(spinnerLargeur,
                 MParametres.instance.getChoixLargeur(),
-                MParametres.instance.getLargeur());
+                //De la partie
+                MParametres.instance.parametresPartie.getLargeur());
     }
 
     private void afficherChoixPourGagner(){
         mettreAJourSpinner(spinnerPourGagner,
                 MParametres.instance.getChoixPourGagner(),
-                MParametres.instance.getPourGagner());
+                //De la partie
+                MParametres.instance.parametresPartie.getPourGagner());
     }
 
     private void mettreAJourSpinner(Spinner spinner, List<Integer> choix, int selectionCourante){

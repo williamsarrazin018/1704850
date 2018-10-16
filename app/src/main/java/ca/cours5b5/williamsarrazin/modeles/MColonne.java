@@ -1,5 +1,6 @@
 package ca.cours5b5.williamsarrazin.modeles;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,13 +13,20 @@ public class MColonne extends Modele {
 
     public MColonne() {
 
+        //initialiser la liste de jetons
+        jetons = new ArrayList<>();
+
     }
 
-    public List<GCouleur> getJetons(GCouleur couleur) {
+    public List<GCouleur> getJetons() {
+
         return jetons;
     }
 
     public void placerJeton(GCouleur couleur) {
+
+        //Ajouter une couleur/jeton dans la liste
+        jetons.add(couleur);
 
     }
 

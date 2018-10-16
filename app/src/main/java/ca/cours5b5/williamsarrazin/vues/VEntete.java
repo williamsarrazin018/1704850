@@ -8,6 +8,7 @@ import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerFournisseur;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerObservateur;
 
 public class VEntete extends AppCompatButton {
+
     public VEntete(Context context) {
         super(context);
     }
@@ -20,9 +21,8 @@ public class VEntete extends AppCompatButton {
         super(context, attrs, defStyleAttr);
     }
 
-    private int colonne;
-
     public VEntete(Context context, int colonne){
+
         super(context);
 
         String fleche = "\u2193";
@@ -31,7 +31,4 @@ public class VEntete extends AppCompatButton {
 
     }
 
-    public void setOnClickListener(ListenerObservateur listener) {
-        this.setOnClickListener(listener);
-    }
 }

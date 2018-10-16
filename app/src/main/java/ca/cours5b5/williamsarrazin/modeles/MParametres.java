@@ -7,17 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import ca.cours5b5.williamsarrazin.controleurs.ControleurAction;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
-import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerFournisseur;
 import ca.cours5b5.williamsarrazin.exceptions.ErreurSerialisation;
-import ca.cours5b5.williamsarrazin.global.GCommande;
 import ca.cours5b5.williamsarrazin.global.GConstantes;
 import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
 
 public class MParametres extends Modele implements Fournisseur {
 
-    // FIXME: c'est temporaire ; on va écrire un gestionnaire de modèles à l'Atelier07
     public static MParametres instance = new MParametres();
 
     static{
@@ -50,12 +46,7 @@ public class MParametres extends Modele implements Fournisseur {
     public MParametres(){
         super();
 
-        ControleurAction.fournirAction(this, GCommande.OUVRIR_MENU_PARAMETRES, new ListenerFournisseur() {
-            @Override
-            public void executer(Object... args) {
-
-            }
-        });
+        parametresPartie = new MParametresPartie();
 
         hauteur = GConstantes.HAUTEUR_PAR_DEFAUT;
         largeur = GConstantes.LARGEUR_PAR_DEFAUT;
@@ -134,43 +125,20 @@ public class MParametres extends Modele implements Fournisseur {
 
     @Override
     public void aPartirObjetJson(Map<String, Object> objetJson) throws ErreurSerialisation{
-        for(Map.Entry<String, Object> entry : objetJson.entrySet()){
 
-            String chaineValeur = (String) entry.getValue();
-
-            switch (entry.getKey()){
-
-                case __hauteur:
-
-                    hauteur = Integer.valueOf(chaineValeur);
-                    break;
-
-                case __largeur:
-
-                    largeur = Integer.valueOf(chaineValeur);
-                    break;
-
-
-                case __pourGagner:
-
-                    largeur = Integer.valueOf(chaineValeur);
-                    break;
-
-                default:
-
-                    throw new ErreurSerialisation("Attribut inconnu: " + entry.getKey());
-            }
-        }
+        //Appeler la methodes de parametresPartie
+        parametresPartie.aPartirObjetJson(objetJson);
     }
 
 
     @Override
     public Map<String, Object> enObjetJson() throws ErreurSerialisation {
+
         Map<String, Object> objetJson = new HashMap<>();
 
-        objetJson.put(__hauteur, hauteur.toString());
-        objetJson.put(__largeur, largeur.toString());
-        objetJson.put(__pourGagner, pourGagner.toString());
+        Map<String, Object> objetJsonPartie = parametresPartie.enObjetJson();
+        objetJson.put(__parametresPartie, objetJsonPartie);
+
 
         return objetJson;
 

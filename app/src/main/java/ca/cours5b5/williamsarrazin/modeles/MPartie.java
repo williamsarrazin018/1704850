@@ -1,8 +1,5 @@
 package ca.cours5b5.williamsarrazin.modeles;
 
-import android.util.Log;
-
-import java.util.ArrayList;
 import java.util.Map;
 
 import ca.cours5b5.williamsarrazin.controleurs.ControleurAction;
@@ -12,7 +9,6 @@ import ca.cours5b5.williamsarrazin.exceptions.ErreurSerialisation;
 import ca.cours5b5.williamsarrazin.global.GCommande;
 import ca.cours5b5.williamsarrazin.global.GCouleur;
 import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
-import ca.cours5b5.williamsarrazin.vues.VGrille;
 
 public class MPartie extends Modele implements Fournisseur{
 
@@ -31,13 +27,13 @@ public class MPartie extends Modele implements Fournisseur{
         this.grille = new MGrille(parametres.getLargeur());
         initialiserCouleurCourante();
         fournirActionPlacerJeton();
-        Log.d("atelier07", "Creer mpartie");
 
     }
 
     public MParametresPartie getParametres() {
 
         return parametres;
+
     }
 
     @Override
@@ -57,8 +53,10 @@ public class MPartie extends Modele implements Fournisseur{
     }
 
     private void initialiserCouleurCourante() {
+
         //Par defaut, Rouge pour le premier coup du premier joueur
         couleurCourante = GCouleur.ROUGE;
+
     }
 
     private void fournirActionPlacerJeton() {
@@ -66,7 +64,7 @@ public class MPartie extends Modele implements Fournisseur{
         ControleurAction.fournirAction(this, GCommande.JOUEUR_COUP_ICI, new ListenerFournisseur() {
             @Override
             public void executer(Object... args) {
-                //Action qui sera exec quand le joueur clique sur l'entete pour jouer
+                //Action qui sera executee quand le joueur clique sur l'entete pour jouer avec comme arguments le numero de colonne
                 jouerCoup( (int) args[0] );
 
             }
@@ -76,7 +74,7 @@ public class MPartie extends Modele implements Fournisseur{
 
     protected void jouerCoup(int colonne) {
 
-        //Placer le jeton et changer la couleur pour passer a l'autre joueur
+        //Placer le jeton dans la bonne colonne et changer la couleur pour passer a l'autre joueur
         grille.placerJeton(colonne, couleurCourante);
 
         prochaineCouleurCourante();

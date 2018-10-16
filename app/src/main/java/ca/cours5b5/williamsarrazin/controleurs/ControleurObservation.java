@@ -3,7 +3,6 @@ package ca.cours5b5.williamsarrazin.controleurs;
 import java.util.HashMap;
 import java.util.Map;
 
-import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerFournisseur;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerObservateur;
 import ca.cours5b5.williamsarrazin.exceptions.ErreurObservation;
 import ca.cours5b5.williamsarrazin.modeles.MParametres;
@@ -18,6 +17,7 @@ public class ControleurObservation {
     private static MPartie partie;
 
     static {
+        //initialiser le map d'association des observations
         observations = new HashMap<>();
     }
 
@@ -30,16 +30,18 @@ public class ControleurObservation {
 
             observations.put(ControleurObservation.partie, listenerObservateur);
 
-            //On lance obesrvation de la nouvelle partie
+            //On lance obeservation de la nouvelle partie
             lancerObservationNouveauModele(ControleurObservation.partie);
 
         } else if (nomModele.equals(MParametres.class.getSimpleName())) {
 
+            //On ajoute l'observation dans le map et on lance l'observation de l'instance
             observations.put(MParametres.instance, listenerObservateur);
             lancerObservationNouveauModele(MParametres.instance);
 
         } else {
 
+            //Si aucun des deux, on lance l'exception
             throw  new ErreurObservation("Le modele est inconnu : " + nomModele);
 
         }
@@ -49,12 +51,12 @@ public class ControleurObservation {
 
     public static void lancerObservation(Modele modele){
 
-        //Recuperer le listener approprie
+        //Recuperer le listener approprie d'apres le modele dans le map
         ListenerObservateur listener = observations.get(modele);
 
         if (listener != null) {
 
-            listener.reagirChangementModele(modele);
+            listener.reagirChangementAuModele(modele);
 
         }
 
@@ -62,11 +64,12 @@ public class ControleurObservation {
 
     public static void lancerObservationNouveauModele(Modele modele){
 
-        ListenerObservateur listenerObservateur = observations.get(modele);
+        //Recuperer le listener approprie d'apres le modele dans le map
+        ListenerObservateur listener = observations.get(modele);
 
-        if (listenerObservateur != null) {
+        if (listener != null) {
 
-            listenerObservateur.reagirNouveauModele(modele);
+            listener.reagirNouveauModele(modele);
 
         }
 

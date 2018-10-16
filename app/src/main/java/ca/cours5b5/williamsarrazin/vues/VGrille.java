@@ -8,33 +8,21 @@ import android.view.View;
 import android.widget.GridLayout;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import ca.cours5b5.williamsarrazin.R;
 import ca.cours5b5.williamsarrazin.controleurs.Action;
 import ca.cours5b5.williamsarrazin.controleurs.ControleurAction;
-import ca.cours5b5.williamsarrazin.controleurs.ControleurObservation;
-import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerFournisseur;
-import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerObservateur;
 import ca.cours5b5.williamsarrazin.global.GCommande;
 import ca.cours5b5.williamsarrazin.global.GCouleur;
 import ca.cours5b5.williamsarrazin.modeles.MGrille;
-import ca.cours5b5.williamsarrazin.modeles.MParametres;
-import ca.cours5b5.williamsarrazin.modeles.MPartie;
-import ca.cours5b5.williamsarrazin.modeles.Modele;
 
 public class VGrille extends GridLayout {
 
+    //Pour stocker les cases de la grille
     private VCase[][] lesCases;
 
-    private GridLayout layout;
-
-    private int largeur;
-
-    private int hauteur;
-
-    private MPartie partie;
+    //Action permettant de mettre un jeton dans la case
+    private Action actionJouerCoup;
 
     public VGrille(Context context) {
         super(context);
@@ -45,208 +33,174 @@ public class VGrille extends GridLayout {
     }
 
     public VGrille(Context context, AttributeSet attrs, int defStyleAttr) {
+
         super(context, attrs, defStyleAttr);
-    }
-
-    private int nombreRangees;
-
-    public class Colonne extends ArrayList<VCase> {
-
-        private VEntete entete;
-        private int id;
-
-
-        public Colonne( int id) {
-
-            this.id = id;
-
-
-        }
-
-        public VEntete getEntete() {
-            return entete;
-        }
-
-        public void setEntete(Context contexte, int entete) {
-            this.entete = new VEntete(contexte, entete);
-        }
-
-        public int getId() {
-            return id;
-        }
-
 
     }
 
-    private List<VEntete> entetes;
+    //Contiendra les entetes pour chacune des colonnes + leur listener
+    private List<VEntete> entetes = new ArrayList<>();
 
-    private List<Colonne> colonnesDeCases = new ArrayList<>();
 
     @Override
     protected void onFinishInflate(){
-        Log.d("grid", "Grid:Onfinishinflate");
+        Log.d("atelier07", VGrille.class.getSimpleName() + "::Grid:Onfinishinflate");
         super.onFinishInflate();
-        //partie = new MPartie(MParametres.instance.getParametresPartie());
-        //initialiser();
-    }
-
-    public void initialiser(){
-        layout = this.findViewById(R.id.grilleLayout);
-        int largeur = MParametres.instance.getLargeur();
-        int hauteur = MParametres.instance.getHauteur();
-
-        layout.setColumnCount(largeur);
-        layout.setRowCount(hauteur + 1);
-
-        creerGrille(hauteur, largeur);
-
-        for (int i = 0; i < largeur; i++) {
-            layout.addView(colonnesDeCases.get(i).getEntete(), getMisenEnPageEntete(i));
-        }
-
-        int col = 0;
-        int rangee = 1;
-
-        for (int i = 0; i < largeur; i++) {
-            rangee = 1;
-
-            for (int j = hauteur - 1; j > -1; j--) {
-                layout.addView(colonnesDeCases.get(i).get(j), getMiseEnPageCase(col, rangee));
-                rangee++;
-            }
-            col++;
-
-        }
-
 
     }
+
+
 
     void creerGrille(int hauteur, int largeur) {
 
-        initialiserColonnes(largeur);
+        //Etapes pour initialiser la grille
+
+        initialiserTableauDeCases(hauteur, largeur);
+
         ajouterEnTetes( largeur);
+
         ajouterCases(hauteur, largeur);
 
-
-
-    }
-
-    private void initialiserColonnes(int largeur){
-        colonnesDeCases = new ArrayList<>();
-        for (int i = 0; i < largeur; i++) {
-
-            colonnesDeCases.add(new Colonne(i));
-
-        }
-
-
-
+        //Demander l'action pour pouvoir jouer un tour
+        demanderActionEntete();
 
     }
+
 
     private void ajouterEnTetes(int largeur){
 
-       Iterator<Colonne> iterateur = colonnesDeCases.iterator();
+        //Ajouter une entete et son listener pour chaque colonne de la grille
 
-       int cpt = 0;
+        for (int i = 0; i < largeur; i++) {
 
-       while (iterateur.hasNext()) {
+            VEntete enteteColonne = new VEntete(this.getContext(), i);
 
-            Colonne col = iterateur.next();
+            //Ajouter dans la vue avec les bons parametres de layout
+            addView(enteteColonne, getMisenEnPageEntete(i ));
 
-            final int id = col.id;
-            //jouerCoup.setListenerFournisseur();
-            col.setEntete(this.getContext(), col.getId());
-            col.entete.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Action jouerCoup = ControleurAction.demanderAction(GCommande.JOUEUR_COUP_ICI);
-                    Log.d("atelier07", "onclick");
-                    Object [] args = {0, 1, 2};
-                    jouerCoup.setArguments(args);
-                    jouerCoup.executerDesQuePossible();
+            entetes.add(enteteColonne);
 
-                    Log.d("atelier07", args.length + "");
-
-                }
-            });
-
-       }
+            installerListenerEntete(enteteColonne, i);
+        }
 
     }
 
     private LayoutParams getMiseEnPageCase(int colonne, int rangee){
 
+        Spec specRangee = GridLayout.spec(rangee + 1, 1.0f);
+        Spec specColonne = GridLayout.spec(colonne, 1.0f);
 
-        LayoutParams params = new LayoutParams();
-        Spec specRangee = GridLayout.spec(rangee, 1f);
-        Spec specColonne = GridLayout.spec(colonne, 1f);
-
-        params = new LayoutParams(specRangee, specColonne);
+        LayoutParams params = new LayoutParams(specRangee, specColonne);
         params.width = 0;
         params.height = 0;
         params.setGravity(Gravity.FILL);
 
+        //params.rightMargin = 5;
+        //params.leftMargin = 5;
 
         return params;
     }
 
+    //TODO refactor
     private void ajouterCases(int hauteur, int largeur){
 
-        Iterator<Colonne> iterateur = colonnesDeCases.iterator();
+        //rangee
+        for (int i = 0; i < largeur; i++) {
 
-        int cpt = 0;
+            //Colonne
+            for (int j = 0; j < hauteur; j++) {
 
-        while (iterateur.hasNext()) {
+                VCase nouvelleCase = new VCase(this.getContext(), j, i);
 
-            Colonne col = iterateur.next();
+                //Ajouter la case avec les bon parametres de layout
+                addView(nouvelleCase, getMiseEnPageCase( i, (hauteur - (j + 1))));
 
-            for (int i = 0; i < hauteur; i++) {
-
-                col.add(new VCase(this.getContext(), i, col.getId()));
+                //Ajouter aussi dans le tableau de cases
+                lesCases[j][i] = nouvelleCase;
 
             }
 
         }
-
 
     }
 
     private LayoutParams getMisenEnPageEntete(int colonne){
 
         LayoutParams params = new LayoutParams();
+
+        //3 fois plus gros qu'une case
         Spec specRangee = GridLayout.spec(0, 3f);
         Spec specColonne = GridLayout.spec(colonne, 3f);
 
         params = new LayoutParams(specRangee, specColonne);
+
+        //Pour rendre l'affichage dynamique
         params.width = 0;
         params.height = 0;
         params.setGravity(Gravity.FILL);
 
-
         return params;
+
     }
-    public GridLayout getLayout(){
-        return layout;
-    }
+
+
     private void demanderActionEntete() {
+
+        //On demande l'action au modele pour jouer un jeton
+        actionJouerCoup = ControleurAction.demanderAction(GCommande.JOUEUR_COUP_ICI);
 
     }
 
     private void initialiserTableauDeCases(int hauteur, int largeur) {
-        lesCases = new VCase[largeur][hauteur];
+        lesCases = new VCase[hauteur][largeur];
     }
 
 
     private void installerListenerEntete(VEntete entete, final int colonne){
 
+        entete.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Ajouter arguments a l'action et faire la demande d'execution
+
+                actionJouerCoup.setArguments(colonne);
+
+                //Sera executer des que le modele sera cree
+                actionJouerCoup.executerDesQuePossible();
+
+            }
+        });
+
     }
 
-    void affichergrille(MGrille grille) {
+    void afficherJetons(MGrille grille) {
+
+        //Recuperer le bon jeton et l'afficher a la bonne rangee, colonne
+
+        //colonnes
+        for (int i = 0; i < grille.getColonnes().size(); i++) {
+
+            //rangees
+            for (int y = 0; y < grille.getColonnes().get(i).getJetons().size(); y++) {
+
+                //trouver le bon jeton
+                GCouleur jetonCourant = grille.getColonnes().get(i).getJetons().get(y);
+
+                afficherJeton(i, y, jetonCourant);
+
+            }
+
+        }
 
     }
 
     private void afficherJeton(int colonne, int rangee, GCouleur jeton) {
+
+        //Changer la case de couleur pour montrer presence d'un jeton
+        VCase casejeton = lesCases[rangee][colonne];
+
+        casejeton.afficherJeton(jeton);
 
     }
 

@@ -52,22 +52,26 @@ public class ControleurAction {
     }
 
     static void executerDesQuePossible(Action action){
-        Log.d("atelier07", "execdqpctrlaction");
+        Log.d("atelier07", ControleurAction.class.getSimpleName() + "::executerDesQuePossible");
 
+        //Mettre dans la file d'execution
         ajouterActionEnFileDAttente(action);
         executerActionsExecutables();
 
     }
 
     private static void executerActionsExecutables() {
-        Log.d("atelier07", "executerActionsExec");
+
+        Log.d("atelier07", ControleurAction.class.getSimpleName() + "::executerActionsExecutables");
+
         ListIterator<Action> iterateur = fileAttenteExecution.listIterator();
 
         while (iterateur.hasNext()) {
             Action action = iterateur.next();
 
+            //Execute l'action et lance l'observation
             if(siActionExecutable(action)){
-                Log.d("atelier07", "aaa");
+
                 fileAttenteExecution.remove(action);
 
                 executerMaintenant(action);
@@ -81,9 +85,7 @@ public class ControleurAction {
     }
 
     static boolean siActionExecutable(Action action){
-
-
-
+        //Executable quand le fournisseur de l'action n'est pas null
         return action.getListenerFournisseur() != null;
 
     }
@@ -102,9 +104,9 @@ public class ControleurAction {
 
     private static synchronized void executerMaintenant(Action action){
 
-        Log.d("atelier07", "execmaintenantctrlaction");
+        Log.d("atelier07", ControleurAction.class.getSimpleName() + "::executerMaintenant");
 
-        //Executer action avec ses arguments respectifs
+        //Executer l'action avec ses arguments respectifs
 
         action.getListenerFournisseur().executer(action.args);
 
@@ -112,16 +114,15 @@ public class ControleurAction {
 
     private static void enregistrerFournisseur(Fournisseur fournisseur, GCommande commande, ListenerFournisseur listenerFournisseur){
 
+        //enregistrer les informations dans l'action
         Action action = actions.get(commande);
         action.fournisseur = fournisseur;
         action.listenerFournisseur = listenerFournisseur;
 
-
-
     }
 
     private static void ajouterActionEnFileDAttente(Action action){
-
+        //Mettre un clone de l'action dans la file d'attente des actions
         Action clone = action.cloner();
 
         fileAttenteExecution.add(clone);

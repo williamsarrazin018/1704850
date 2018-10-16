@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ca.cours5b5.williamsarrazin.exceptions.ErreurSerialisation;
+import ca.cours5b5.williamsarrazin.global.GConstantes;
+import ca.cours5b5.williamsarrazin.global.GCouleur;
 import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
 
 public class MParametresPartie extends Modele {
@@ -23,21 +25,33 @@ public class MParametresPartie extends Modele {
 
     public static MParametresPartie aPartirMParametres(MParametres mParametres){
 
-        MParametresPartie mParametresPartie = new MParametresPartie();
-
-        mParametresPartie.setHauteur(mParametres.getHauteur());
-        mParametresPartie.setLargeur(mParametres.getLargeur());
-        mParametresPartie.setPourGagner(mParametres.getPourGagner());
+        //renvoie un clone de parametresPartie de MParametres
+        MParametresPartie mParametresPartie = mParametres.parametresPartie.cloner();
 
         return mParametresPartie;
     }
 
-    public MParametresPartie cloner() throws CloneNotSupportedException {
-        MParametresPartie modele = (MParametresPartie) this.clone();
+
+    public MParametresPartie cloner() {
+
+        MParametresPartie modele = new MParametresPartie();
+
+        modele.hauteur = this.hauteur;
+        modele.pourGagner = this.pourGagner;
+        modele.largeur = this.largeur;
+
+        //Renvoie un modele avec les meme parametres que le courant
+
         return modele;
+
     }
 
     public MParametresPartie(){
+
+        //Choix par defaut
+        hauteur = GConstantes.HAUTEUR_PAR_DEFAUT;
+        pourGagner = GConstantes.POUR_GAGNER_PAR_DEFAUT;
+        largeur = GConstantes.LARGEUR_PAR_DEFAUT;
 
     }
 
@@ -92,7 +106,7 @@ public class MParametresPartie extends Modele {
 
                 default:
 
-                    throw new ErreurSerialisation("Attribut inconnu: " + entry.getKey());
+                    throw new ErreurSerialisation("L'attribut est inconnu: " + entry.getKey());
             }
         }
 

@@ -5,6 +5,7 @@ import android.util.Log;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerFournisseur;
 import ca.cours5b5.williamsarrazin.modeles.MPartie;
+import ca.cours5b5.williamsarrazin.vues.VGrille;
 
 public class Action implements Cloneable {
 
@@ -17,12 +18,14 @@ public class Action implements Cloneable {
 
 
     public void executerDesQuePossible(){
-        Log.d("atelier07", "execdespossible");
+        Log.d("atelier07", Action.class.getSimpleName() + "::executerDesQuePossible");
         ControleurAction.executerDesQuePossible(this);
 
     }
 
     public Action cloner() {
+
+        //Creer un clone de l'action desiree
 
         Action clone = new Action();
 
