@@ -4,6 +4,9 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
+import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerFournisseur;
+import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerObservateur;
+
 public class VEntete extends AppCompatButton {
     public VEntete(Context context) {
         super(context);
@@ -26,5 +29,9 @@ public class VEntete extends AppCompatButton {
 
         this.setText(colonne + "\n" + fleche + "\n" + fleche);
 
+    }
+
+    public void setOnClickListener(ListenerObservateur listener) {
+        this.setOnClickListener(listener);
     }
 }

@@ -5,6 +5,7 @@ import ca.cours5b5.williamsarrazin.modeles.Modele;
 public abstract class ListenerObservateur {
 
     public void reagirNouveauModele(Modele modele) {
+
         reagirNouveauModele(modele);
     }
 

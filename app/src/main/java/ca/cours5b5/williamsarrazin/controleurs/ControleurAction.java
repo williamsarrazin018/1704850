@@ -1,5 +1,7 @@
 package ca.cours5b5.williamsarrazin.controleurs;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,15 +33,12 @@ public class ControleurAction {
 
     public static Action demanderAction(GCommande commande){
 
+        //On trouve l'action liees a la commande desiree
+
         Action action = new Action();
 
-        for(Map.Entry<GCommande, Action> entry : actions.entrySet()) {
+        action = actions.get(commande);
 
-            if(entry.getKey() == commande) {
-                action = entry.getValue();
-            }
-
-        }
         return action;
 
 
@@ -47,29 +46,28 @@ public class ControleurAction {
 
     public static void fournirAction(Fournisseur fournisseur, GCommande commande, ListenerFournisseur listenerFournisseur) {
 
-
         enregistrerFournisseur(fournisseur, commande, listenerFournisseur);
         executerActionsExecutables();
 
     }
 
     static void executerDesQuePossible(Action action){
+        Log.d("atelier07", "execdqpctrlaction");
 
-        fileAttenteExecution.add(action);
+        ajouterActionEnFileDAttente(action);
         executerActionsExecutables();
 
     }
 
     private static void executerActionsExecutables() {
-
+        Log.d("atelier07", "executerActionsExec");
         ListIterator<Action> iterateur = fileAttenteExecution.listIterator();
 
         while (iterateur.hasNext()) {
-
             Action action = iterateur.next();
 
             if(siActionExecutable(action)){
-
+                Log.d("atelier07", "aaa");
                 fileAttenteExecution.remove(action);
 
                 executerMaintenant(action);
@@ -86,16 +84,17 @@ public class ControleurAction {
 
 
 
-        return action.listenerFournisseur != null;
+        return action.getListenerFournisseur() != null;
 
     }
 
 
     private static void lancerObservationSiApplicable(Action action){
 
+        //Seulement si le fournissweur est un modele
         if(action.fournisseur instanceof Modele){
 
-           // ControleurObservation.lancerObservation((Modele) action.fournisseur);
+           ControleurObservation.lancerObservation((Modele) action.getFournisseur());
 
         }
 
@@ -103,7 +102,11 @@ public class ControleurAction {
 
     private static synchronized void executerMaintenant(Action action){
 
-        action.listenerFournisseur.executer();
+        Log.d("atelier07", "execmaintenantctrlaction");
+
+        //Executer action avec ses arguments respectifs
+
+        action.getListenerFournisseur().executer(action.args);
 
     }
 
@@ -114,9 +117,10 @@ public class ControleurAction {
         action.listenerFournisseur = listenerFournisseur;
 
 
+
     }
 
-    private static void ajouterActionEnFileDAttente(Action action) throws CloneNotSupportedException{
+    private static void ajouterActionEnFileDAttente(Action action){
 
         Action clone = action.cloner();
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.GridLayout;
 
 import java.util.ArrayList;
@@ -11,15 +12,29 @@ import java.util.Iterator;
 import java.util.List;
 
 import ca.cours5b5.williamsarrazin.R;
+import ca.cours5b5.williamsarrazin.controleurs.Action;
+import ca.cours5b5.williamsarrazin.controleurs.ControleurAction;
+import ca.cours5b5.williamsarrazin.controleurs.ControleurObservation;
+import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerFournisseur;
+import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerObservateur;
+import ca.cours5b5.williamsarrazin.global.GCommande;
+import ca.cours5b5.williamsarrazin.global.GCouleur;
+import ca.cours5b5.williamsarrazin.modeles.MGrille;
 import ca.cours5b5.williamsarrazin.modeles.MParametres;
+import ca.cours5b5.williamsarrazin.modeles.MPartie;
+import ca.cours5b5.williamsarrazin.modeles.Modele;
 
 public class VGrille extends GridLayout {
+
+    private VCase[][] lesCases;
 
     private GridLayout layout;
 
     private int largeur;
 
     private int hauteur;
+
+    private MPartie partie;
 
     public VGrille(Context context) {
         super(context);
@@ -71,7 +86,8 @@ public class VGrille extends GridLayout {
     protected void onFinishInflate(){
         Log.d("grid", "Grid:Onfinishinflate");
         super.onFinishInflate();
-        initialiser();
+        //partie = new MPartie(MParametres.instance.getParametresPartie());
+        //initialiser();
     }
 
     public void initialiser(){
@@ -136,9 +152,24 @@ public class VGrille extends GridLayout {
 
        while (iterateur.hasNext()) {
 
-           Colonne col = iterateur.next();
+            Colonne col = iterateur.next();
 
-         col.setEntete(this.getContext(), col.getId());
+            final int id = col.id;
+            //jouerCoup.setListenerFournisseur();
+            col.setEntete(this.getContext(), col.getId());
+            col.entete.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Action jouerCoup = ControleurAction.demanderAction(GCommande.JOUEUR_COUP_ICI);
+                    Log.d("atelier07", "onclick");
+                    Object [] args = {0, 1, 2};
+                    jouerCoup.setArguments(args);
+                    jouerCoup.executerDesQuePossible();
+
+                    Log.d("atelier07", args.length + "");
+
+                }
+            });
 
        }
 
@@ -198,4 +229,25 @@ public class VGrille extends GridLayout {
     public GridLayout getLayout(){
         return layout;
     }
+    private void demanderActionEntete() {
+
+    }
+
+    private void initialiserTableauDeCases(int hauteur, int largeur) {
+        lesCases = new VCase[largeur][hauteur];
+    }
+
+
+    private void installerListenerEntete(VEntete entete, final int colonne){
+
+    }
+
+    void affichergrille(MGrille grille) {
+
+    }
+
+    private void afficherJeton(int colonne, int rangee, GCouleur jeton) {
+
+    }
+
 }

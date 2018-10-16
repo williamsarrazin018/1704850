@@ -7,5 +7,6 @@ public enum GCommande {
     CHOISIR_POUR_GAGNER,
 
     OUVRIR_MENU_PARAMETRES,
+    JOUEUR_COUP_ICI,
 
 }
