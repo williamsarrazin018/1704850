@@ -37,6 +37,7 @@ public class ControleurObservation {
 
             //On ajoute l'observation dans le map et on lance l'observation de l'instance
             observations.put(MParametres.instance, listenerObservateur);
+
             lancerObservationNouveauModele(MParametres.instance);
 
         } else {

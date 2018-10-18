@@ -87,16 +87,16 @@ public class VGrille extends GridLayout {
 
     private LayoutParams getMiseEnPageCase(int colonne, int rangee){
 
+        LayoutParams params = new LayoutParams();
+
         Spec specRangee = GridLayout.spec(rangee + 1, 1.0f);
         Spec specColonne = GridLayout.spec(colonne, 1.0f);
 
-        LayoutParams params = new LayoutParams(specRangee, specColonne);
+        params = new LayoutParams(specRangee, specColonne);
+        //Rendre l'affichage dynamique
         params.width = 0;
         params.height = 0;
         params.setGravity(Gravity.FILL);
-
-        //params.rightMargin = 5;
-        //params.leftMargin = 5;
 
         return params;
     }
@@ -197,7 +197,7 @@ public class VGrille extends GridLayout {
 
     private void afficherJeton(int colonne, int rangee, GCouleur jeton) {
 
-        //Changer la case de couleur pour montrer presence d'un jeton
+        //Changer la case de couleur pour montrer presence d'un jeton au bon endroit
         VCase casejeton = lesCases[rangee][colonne];
 
         casejeton.afficherJeton(jeton);

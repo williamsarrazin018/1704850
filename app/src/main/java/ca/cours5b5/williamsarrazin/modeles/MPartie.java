@@ -12,8 +12,6 @@ import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
 
 public class MPartie extends Modele implements Fournisseur{
 
-    //public static  MPartie instance = new MPartie(MParametres.instance.getParametresPartie());
-
     @AttributSerialisable
     public MParametresPartie parametres;
     private final String __parametres = "parametres";
