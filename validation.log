@@ -1,0 +1,91 @@
+
+SECTION 00: MParametres ne stoque plus largeur/hauteur/pourGagner
+
+TEST 00: [ECHOUE]
+
+commande:	grep -R -Hno  "p[^(]*nt[^(]*hauteur[^(]*;" \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/modeles/MParametres.java \ 
+résultat voulu:	0
+résultat reçu:	1
+
+TEST 01: [ECHOUE]
+
+commande:	grep -R -Hno  "p[^(]*nt[^(]*largeur[^(]*;" \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/modeles/MParametres.java \ 
+résultat voulu:	0
+résultat reçu:	1
+
+TEST 02: [ECHOUE]
+
+commande:	grep -R -Hno  "p[^(]*nt[^(]*pourGagner[^(]*;" \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/modeles/MParametres.java \ 
+résultat voulu:	0
+résultat reçu:	1
+
+SECTION 01: MParametresPartie stoque largeur/hauteur/pourGagner
+
+TEST 03: [REUSSI]
+
+commande:	grep -R -Hno  "p[^(]*nt[^(]*hauteur[^(]*;" \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/modeles/MParametresPartie.java \ 
+résultat voulu:	1
+résultat reçu:	1
+
+TEST 04: [REUSSI]
+
+commande:	grep -R -Hno  "p[^(]*nt[^(]*largeur[^(]*;" \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/modeles/MParametresPartie.java \ 
+résultat voulu:	1
+résultat reçu:	1
+
+TEST 05: [REUSSI]
+
+commande:	grep -R -Hno  "p[^(]*nt[^(]*pourGagner[^(]*;" \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/modeles/MParametresPartie.java \ 
+résultat voulu:	1
+résultat reçu:	1
+
+SECTION 02: VPartie utilise l'observation
+
+TEST 06: [REUSSI]
+
+commande:	grep -R -Hno  "observerModele(.*$" \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/vues/VPartie.java \ 
+résultat voulu:	1
+résultat reçu:	1
+
+SECTION 03: MPartie fournit des actions
+
+TEST 07: [REUSSI]
+
+commande:	grep -R -Hno -A1 "fournirAction(.*$" \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/modeles/MPartie.java \ 
+résultat voulu:	1
+résultat reçu:	1
+
+SECTION 04: Les vues de la partie utilisent des actions
+
+TEST 08: [REUSSI]
+
+commande:	grep -R -Hno  "demanderAction(.*$" \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/vues/VCase.java \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/vues/VEntete.java \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/vues/VGrille.java \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/vues/VPartie.java \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/vues/Vue.java \ 
+résultat voulu:	1
+résultat reçu:	1
+
+SECTION 05: Les vues de la partie ne modifie **pas** directement les modèles
+
+TEST 09: [REUSSI]
+
+commande:	grep -R -Hno  "jouerCoup" \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/vues/VCase.java \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/vues/VEntete.java \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/vues/VGrille.java \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/vues/VPartie.java \
+			./app/src/main/java/ca/cours5b5/williamsarrazin/vues/Vue.java \ 
+résultat voulu:	0
+résultat reçu:	0
+
