@@ -7,7 +7,7 @@
     tools:context="ca.cours5b5.williamsarrazin.activites.AMenuPrincipal">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bouton_parametres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -18,20 +18,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/bouton_partie" />
 
     <Button
-        android:id="@+id/buttonJouer"
-        android:layout_width="116dp"
+        android:id="@+id/bouton_partie"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/jouer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.371" />
+        app:layout_constraintBottom_toTopOf="@+id/bouton_parametres"
+        app:layout_constraintEnd_toEndOf="@+id/bouton_parametres"
+        app:layout_constraintStart_toStartOf="@+id/bouton_parametres"
+        app:layout_constraintTop_toTopOf="parent" />
 </ca.cours5b5.williamsarrazin.vues.VMenuPrincipal>
