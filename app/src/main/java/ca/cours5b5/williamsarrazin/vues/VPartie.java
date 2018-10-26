@@ -32,7 +32,7 @@ public class VPartie extends Vue {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-
+        Log.d("exam", VPartie.class.getSimpleName() + "onFinishinflate");
         initialiser();
 
         observerPartie();

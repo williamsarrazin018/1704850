@@ -2,6 +2,7 @@ package ca.cours5b5.williamsarrazin.activites;
 
 
 import android.os.Bundle;
+import android.util.Log;
 
 import ca.cours5b5.williamsarrazin.R;
 import ca.cours5b5.williamsarrazin.controleurs.ControleurModeles;
@@ -16,13 +17,14 @@ public class APartie extends Activite {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_partie);
+        Log.d("exam", APartie.class.getSimpleName() + "OnCreate");
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
+        Log.d("exam", APartie.class.getSimpleName() + "OnPause");
         ControleurModeles.sauvegarderModele(MPartie.class.getSimpleName());
 
     }

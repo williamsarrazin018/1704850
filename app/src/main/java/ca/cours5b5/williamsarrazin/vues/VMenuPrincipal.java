@@ -2,6 +2,7 @@ package ca.cours5b5.williamsarrazin.vues;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -34,7 +35,7 @@ public class VMenuPrincipal extends Vue {
     @Override
     protected void onFinishInflate(){
         super.onFinishInflate();
-
+        Log.d("exam", VMenuPrincipal.class.getSimpleName() + "onFinishinflate");
         recupererControles();
 
         demanderActions();

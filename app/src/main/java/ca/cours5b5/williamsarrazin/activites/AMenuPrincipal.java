@@ -2,6 +2,7 @@ package ca.cours5b5.williamsarrazin.activites;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import ca.cours5b5.williamsarrazin.R;
 import ca.cours5b5.williamsarrazin.controleurs.ControleurAction;
@@ -15,7 +16,7 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
-
+        Log.d("exam", AMenuPrincipal.class.getSimpleName() + "onCreate");
         fournirActions();
 
     }

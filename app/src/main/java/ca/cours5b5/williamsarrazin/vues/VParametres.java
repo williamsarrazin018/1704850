@@ -47,7 +47,7 @@ public class VParametres extends Vue {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-
+        Log.d("exam", VParametres.class.getSimpleName() + "onFinishinflate");
         initialiser();
 
         demanderActions();

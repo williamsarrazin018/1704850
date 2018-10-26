@@ -6,13 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
+import ca.cours5b5.williamsarrazin.donnees.Disque;
 import ca.cours5b5.williamsarrazin.donnees.SourceDeDonnees;
 import ca.cours5b5.williamsarrazin.exceptions.ErreurModele;
 import ca.cours5b5.williamsarrazin.modeles.MParametres;
-import ca.cours5b5.williamsarrazin.modeles.MParametresPartie;
 import ca.cours5b5.williamsarrazin.modeles.MPartie;
 import ca.cours5b5.williamsarrazin.modeles.Modele;
-import ca.cours5b5.williamsarrazin.donnees.Disque;
 
 public final class ControleurModeles {
 
@@ -134,6 +133,12 @@ public final class ControleurModeles {
 
             }
         }
+    }
+
+    private static String getCheminSauvegarde(String nomModele) {
+
+        return "";
+
     }
 
 }
