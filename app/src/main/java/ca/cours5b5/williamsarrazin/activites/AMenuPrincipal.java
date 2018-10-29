@@ -4,11 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.firebase.ui.auth.AuthUI;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import ca.cours5b5.williamsarrazin.R;
 import ca.cours5b5.williamsarrazin.controleurs.ControleurAction;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerFournisseur;
 import ca.cours5b5.williamsarrazin.global.GCommande;
+import ca.cours5b5.williamsarrazin.global.GConstantes;
 
 public class AMenuPrincipal extends Activite implements Fournisseur {
 
@@ -16,7 +22,6 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
-        Log.d("exam", AMenuPrincipal.class.getSimpleName() + "onCreate");
         fournirActions();
 
     }
@@ -26,6 +31,22 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
         fournirActionOuvrirMenuParametres();
 
         fournirActionDemarrerPartie();
+
+        fournirActionConnexion();
+    }
+
+    private void fournirActionConnexion() {
+
+        ControleurAction.fournirAction(this,
+                GCommande.CONNEXION,
+                new ListenerFournisseur() {
+                    @Override
+                    public void executer(Object... args) {
+
+                        connexion();
+
+                    }
+                });
     }
 
     private void fournirActionOuvrirMenuParametres() {
@@ -68,6 +89,35 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
         Intent intentionParametres = new Intent(this, APartie.class);
         startActivity(intentionParametres);
 
+    }
+
+    private void connexion() {
+
+        List<AuthUI.IdpConfig> fournisseurConnexion = new ArrayList<>();
+
+        fournisseurConnexion.add(new AuthUI.IdpConfig.GoogleBuilder().build());
+        fournisseurConnexion.add(new AuthUI.IdpConfig.PhoneBuilder().build());
+        fournisseurConnexion.add(new AuthUI.IdpConfig.EmailBuilder().build());
+
+        Intent intentionConnexion = AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(fournisseurConnexion).build();
+
+        startActivityForResult(intentionConnexion, GConstantes.CODE_CONNEXION);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == GConstantes.CODE_CONNEXION) {
+
+            if (resultCode == RESULT_OK) {
+
+                // Connexion réussie
+
+            } else {
+                // connexion échouée
+            }
+        }
     }
 
 }

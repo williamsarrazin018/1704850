@@ -20,6 +20,9 @@ public class VMenuPrincipal extends Vue {
     private Button boutonPartie;
     private Action actionPartie;
 
+    private Button boutonConnexion;
+    private Action actionConnexion;
+
     public VMenuPrincipal(Context context) {
         super(context);
     }
@@ -51,6 +54,8 @@ public class VMenuPrincipal extends Vue {
 
         boutonPartie = findViewById(R.id.bouton_partie);
 
+        boutonConnexion = findViewById(R.id.btnConnexion);
+
     }
 
     private void demanderActions() {
@@ -67,6 +72,19 @@ public class VMenuPrincipal extends Vue {
         installerListenerParametres();
 
         installerListenerPartie();
+
+        installerListenerConnexion();
+
+    }
+
+    private void installerListenerConnexion() {
+
+        boutonPartie.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionConnexion.executerDesQuePossible();
+            }
+        });
 
     }
 
