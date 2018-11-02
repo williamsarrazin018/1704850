@@ -7,11 +7,13 @@ import java.util.Map;
 
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
 import ca.cours5b5.williamsarrazin.donnees.Disque;
+import ca.cours5b5.williamsarrazin.donnees.Serveur;
 import ca.cours5b5.williamsarrazin.donnees.SourceDeDonnees;
 import ca.cours5b5.williamsarrazin.exceptions.ErreurModele;
 import ca.cours5b5.williamsarrazin.modeles.MParametres;
 import ca.cours5b5.williamsarrazin.modeles.MPartie;
 import ca.cours5b5.williamsarrazin.modeles.Modele;
+import ca.cours5b5.williamsarrazin.usagers.UsagerCourant;
 
 public final class ControleurModeles {
 
@@ -29,6 +31,7 @@ public final class ControleurModeles {
 
         listeDeSauvegardes = new ArrayList<>();
         listeDeSauvegardes.add(Disque.getInstance());
+        listeDeSauvegardes.add(Serveur.getInstance());
 
     }
 
@@ -73,7 +76,7 @@ public final class ControleurModeles {
 
         for(SourceDeDonnees sourceDeDonnees : sequenceDeChargement){
 
-            Map<String, Object> objetJson = sourceDeDonnees.chargerModele(nomModele);
+            Map<String, Object> objetJson = sourceDeDonnees.chargerModele(getCheminSauvegarde(nomModele));
 
             if(objetJson != null){
 
@@ -137,7 +140,9 @@ public final class ControleurModeles {
 
     private static String getCheminSauvegarde(String nomModele) {
 
-        return "";
+        String chemin = nomModele + '/' + UsagerCourant.getId();
+
+        return chemin;
 
     }
 

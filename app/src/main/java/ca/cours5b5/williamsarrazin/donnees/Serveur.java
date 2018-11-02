@@ -5,6 +5,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Map;
 
+import ca.cours5b5.williamsarrazin.serialisation.Jsonification;
+
 public final class Serveur extends SourceDeDonnees {
 
     private Serveur(){}
@@ -27,7 +29,10 @@ public final class Serveur extends SourceDeDonnees {
     @Override
     public Map<String, Object> chargerModele(String cheminSauvegarde){
 
-        return null;
+        DatabaseReference noeud = FirebaseDatabase.getInstance().getReference(cheminSauvegarde);
+
+        return Jsonification.aPartirChaineJson(noeud.toString());
+
 
     }
 

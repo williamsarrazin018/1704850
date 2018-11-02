@@ -64,6 +64,9 @@ public class VMenuPrincipal extends Vue {
 
         actionPartie = ControleurAction.demanderAction(GCommande.DEMARRER_PARTIE);
 
+        actionConnexion =  ControleurAction.demanderAction(GCommande.CONNEXION);
+
+
     }
 
 
@@ -79,7 +82,7 @@ public class VMenuPrincipal extends Vue {
 
     private void installerListenerConnexion() {
 
-        boutonPartie.setOnClickListener(new OnClickListener() {
+        boutonConnexion.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 actionConnexion.executerDesQuePossible();

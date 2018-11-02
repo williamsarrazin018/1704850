@@ -20,7 +20,7 @@ public final class ControleurObservation {
 
     public static void observerModele(String nomModele, final ListenerObservateur listenerObservateur) {
 
-        Modele modele = ca.cours5b5.williamsarrazin.controleurs.ControleurModeles.getModele(nomModele);
+        Modele modele = ControleurModeles.getModele(nomModele);
 
         observations.put(modele, listenerObservateur);
 

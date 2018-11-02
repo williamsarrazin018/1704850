@@ -1,14 +1,33 @@
 package ca.cours5b5.williamsarrazin.usagers;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
+
 public class UsagerCourant {
 
     public static boolean siUsagerConnecte() {
-        return false;
+
+        boolean connected = false;
+
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            connected = true;
+        }
+
+        return connected;
     }
 
     public static String getId(){
 
-        return null;
+        String id = "0";
+
+        if (siUsagerConnecte()) {
+
+            id = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+
+        }
+
+        return id;
 
     }
 

@@ -5,7 +5,7 @@ android {
         debug {
             keyAlias 'key0'
             keyPassword '123456'
-            storeFile file('C:/Users/William/AndroidStudioProjects/WilliamSarrazin/debug.jks')
+            storeFile file('C:/Users/Utilisateur/AndroidStudioProjects/1704850/debug.jks')
             storePassword '123456'
         }
     }
@@ -42,4 +42,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
-//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'

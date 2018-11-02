@@ -113,9 +113,11 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
             if (resultCode == RESULT_OK) {
 
                 // Connexion réussie
+                Log.d("Atelier11", "Connexion réussi: ");
 
             } else {
                 // connexion échouée
+                Log.d("Atelier11", "Connexion echoue: ");
             }
         }
     }
