@@ -93,14 +93,17 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
 
     private void connexion() {
 
+
         List<AuthUI.IdpConfig> fournisseurConnexion = new ArrayList<>();
 
+        //Ajout modes de connexions
         fournisseurConnexion.add(new AuthUI.IdpConfig.GoogleBuilder().build());
         fournisseurConnexion.add(new AuthUI.IdpConfig.PhoneBuilder().build());
         fournisseurConnexion.add(new AuthUI.IdpConfig.EmailBuilder().build());
 
         Intent intentionConnexion = AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(fournisseurConnexion).build();
 
+        //Start l'intention en attente d'une reponse
         startActivityForResult(intentionConnexion, GConstantes.CODE_CONNEXION);
     }
 

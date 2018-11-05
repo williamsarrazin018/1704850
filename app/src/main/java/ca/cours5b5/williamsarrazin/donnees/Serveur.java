@@ -20,6 +20,7 @@ public final class Serveur extends SourceDeDonnees {
     @Override
     public void sauvegarderModele(String cheminSauvegarde, Map<String, Object> objetJson){
 
+        //On crée un noeud dans la db firebase avec le modele dedans
         DatabaseReference noeud = FirebaseDatabase.getInstance().getReference(cheminSauvegarde);
 
         noeud.setValue(objetJson);
@@ -29,6 +30,7 @@ public final class Serveur extends SourceDeDonnees {
     @Override
     public Map<String, Object> chargerModele(String cheminSauvegarde){
 
+        //Charger le modele du serveur
         DatabaseReference noeud = FirebaseDatabase.getInstance().getReference(cheminSauvegarde);
 
         return Jsonification.aPartirChaineJson(noeud.toString());

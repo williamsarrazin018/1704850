@@ -8,6 +8,8 @@ public class UsagerCourant {
 
     public static boolean siUsagerConnecte() {
 
+        //On regarde s'il y a des usagers de connectés
+
         boolean connected = false;
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
@@ -19,10 +21,13 @@ public class UsagerCourant {
 
     public static String getId(){
 
+        //L'id est 0 par défaut (Pas de connectés)
+
         String id = "0";
 
         if (siUsagerConnecte()) {
 
+            //On prend comme id le Uid de l'utilisateur
             id = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
 
         }

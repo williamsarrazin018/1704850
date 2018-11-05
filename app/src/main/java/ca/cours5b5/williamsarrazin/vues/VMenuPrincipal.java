@@ -2,7 +2,6 @@ package ca.cours5b5.williamsarrazin.vues;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -38,7 +37,7 @@ public class VMenuPrincipal extends Vue {
     @Override
     protected void onFinishInflate(){
         super.onFinishInflate();
-        Log.d("exam", VMenuPrincipal.class.getSimpleName() + "onFinishinflate");
+
         recupererControles();
 
         demanderActions();
@@ -50,6 +49,8 @@ public class VMenuPrincipal extends Vue {
 
     private void recupererControles() {
 
+        //Récupérer les boutons du template
+
         boutonParametres = findViewById(R.id.bouton_parametres);
 
         boutonPartie = findViewById(R.id.bouton_partie);
@@ -59,6 +60,8 @@ public class VMenuPrincipal extends Vue {
     }
 
     private void demanderActions() {
+
+        //Demander les actions du menu
 
         actionParametres = ControleurAction.demanderAction(GCommande.OUVRIR_MENU_PARAMETRES);
 

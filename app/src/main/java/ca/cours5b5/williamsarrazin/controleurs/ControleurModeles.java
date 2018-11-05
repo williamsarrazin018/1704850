@@ -31,6 +31,7 @@ public final class ControleurModeles {
 
         listeDeSauvegardes = new ArrayList<>();
         listeDeSauvegardes.add(Disque.getInstance());
+        //Ajout serveur comme source de donnée
         listeDeSauvegardes.add(Serveur.getInstance());
 
     }
@@ -140,6 +141,7 @@ public final class ControleurModeles {
 
     private static String getCheminSauvegarde(String nomModele) {
 
+        //Chemin ou on va sauvegarder
         String chemin = nomModele + '/' + UsagerCourant.getId();
 
         return chemin;

@@ -13,7 +13,6 @@ public enum GCommande {
 
     JOUER_COUP_ICI,
 
-    DECONNEXION,
     CONNEXION,
 
 }
