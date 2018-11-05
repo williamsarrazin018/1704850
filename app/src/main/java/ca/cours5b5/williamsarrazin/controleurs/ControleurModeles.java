@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
+import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerGetModele;
 import ca.cours5b5.williamsarrazin.donnees.Disque;
 import ca.cours5b5.williamsarrazin.donnees.Serveur;
 import ca.cours5b5.williamsarrazin.donnees.SourceDeDonnees;
@@ -55,17 +56,24 @@ public final class ControleurModeles {
         }
     }
 
-    static Modele getModele(final String nomModele){
+    static void getModele(String nomModele, ListenerGetModele listenerGetModele){
 
+        //TODO etape 5
         Modele modele = modelesEnMemoire.get(nomModele);
 
         if(modele == null){
 
+            final String nomDuModele = nomModele;
+
+
+
             modele =  chargerViaSequenceDeChargement(nomModele);
 
-        }
+        } else {
 
-        return modele;
+
+
+        }
     }
 
 
