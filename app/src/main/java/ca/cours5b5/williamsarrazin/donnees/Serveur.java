@@ -1,5 +1,7 @@
 package ca.cours5b5.williamsarrazin.donnees;
 
+import android.util.Log;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,14 +35,18 @@ public final class Serveur extends SourceDeDonnees {
     @Override
     public void chargerModele(final String cheminSauvegarde, final ListenerChargement listenerChargement){
 
+        Log.d("atelier12", "charger modele bd");
         //Charger le modele du serveur
         DatabaseReference noeud = FirebaseDatabase.getInstance().getReference(cheminSauvegarde);
+
 
         noeud.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.exists()) {
+                    Log.d("serveur", "iffffffffff");
+                    Log.d("atelier12", "bd on data changed");
 
                     //Les données sont lues
 
@@ -49,7 +55,7 @@ public final class Serveur extends SourceDeDonnees {
                     listenerChargement.reagirSucces(objetJson);
 
                 } else {
-
+                    Log.d("serveur", "elseeeeee");
                     //Pas de données dans ce noeud donc erreur
                     ErreurModele e = new ErreurModele("Clé introuvée");
 

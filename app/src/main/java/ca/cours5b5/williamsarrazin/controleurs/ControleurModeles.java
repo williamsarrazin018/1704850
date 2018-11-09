@@ -38,10 +38,12 @@ public final class ControleurModeles {
         //Ajout serveur comme source de donnée
         listeDeSauvegardes.add(Serveur.getInstance());
 
+
     }
 
     public static void setSequenceDeChargement(SourceDeDonnees... sequenceDeChargement){
 
+        Log.d("atelier12", "sequence");
         ControleurModeles.sequenceDeChargement = sequenceDeChargement;
 
     }
@@ -65,7 +67,7 @@ public final class ControleurModeles {
 
         //Si pas de modele
         if(modele == null){
-
+            Log.d("atelier12", "pas modele");
             creerModeleEtChargerDonnees(nomModele, listenerGetModele);
 
         } else {
@@ -109,7 +111,7 @@ public final class ControleurModeles {
     }
 
 
-    private static Modele creerModeleSelonNom(String nomModele, final ListenerGetModele listenerGetModele) throws ErreurModele {
+    private static void creerModeleSelonNom(String nomModele, final ListenerGetModele listenerGetModele) throws ErreurModele {
 
         if(nomModele.equals(MParametres.class.getSimpleName())){
 
@@ -191,14 +193,15 @@ public final class ControleurModeles {
 
     private static void chargementViaSequence(Modele modele, String cheminDeSauvegarde, ListenerGetModele listenerGetModele, int indiceSourceCourante){
 
-
+        Log.d("atelier12", "load sequence " + indiceSourceCourante + modele.getClass().getSimpleName());
+        Log.d("sequence", "seq chargement length  " + sequenceDeChargement.length);
         if( indiceSourceCourante < sequenceDeChargement.length ){
 
             //Source suivante ou courante
             chargementViaSourceCouranteOuSuivante(modele, cheminDeSauvegarde, listenerGetModele, indiceSourceCourante);
 
         }else{
-
+            Log.d("atelier12", "load sequence end " + indiceSourceCourante + modele.getClass().getSimpleName());
             //On fini le chargement
             terminerChargement(modele, listenerGetModele);
 
@@ -213,14 +216,14 @@ public final class ControleurModeles {
 
             @Override
             public void reagirSucces(Map<String, Object> objetJson) {
-
+                Log.d("chargerModele", "charger modele success" + modele.getClass().getSimpleName());
                 terminerChargementAvecDonnees(objetJson, modele, listenerGetModele);
 
             }
 
             @Override
             public void reagirErreur(Exception e) {
-
+                Log.d("chargerModele", "charger modele erreur" + modele.getClass().getSimpleName());
                 //Erreur, prochaine source
                 chargementViaSourceSuivante(modele, cheminDeSauvegarde, listenerGetModele, indiceSourceCourante);
 
@@ -245,7 +248,7 @@ public final class ControleurModeles {
     }
 
     private static void terminerChargement(Modele modele, ListenerGetModele listenerGetModele) {
-        Log.d("atelier12", "fin loading");
+        Log.d("atelier12", "fin loading" + modele.getClass().getSimpleName());
 
         //Reagir aux modif du modele
         listenerGetModele.reagirAuModele(modele);
