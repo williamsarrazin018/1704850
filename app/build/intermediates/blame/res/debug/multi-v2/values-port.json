@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\William\\AndroidStudioProjects\\WilliamSarrazin\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
+            "outputFile": "C:\\Users\\Utilisateur\\AndroidStudioProjects\\1704850\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\William\\AndroidStudioProjects\\WilliamSarrazin\\app\\src\\main\\res\\values-port\\bools.xml",
+                    "source": "C:\\Users\\Utilisateur\\AndroidStudioProjects\\1704850\\app\\src\\main\\res\\values-port\\bools.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
-                        "startOffsets": "56",
+                        "startOffsets": "59",
                         "endColumns": "40",
-                        "endOffsets": "92"
+                        "endOffsets": "95"
                     },
                     "to": {
                         "startLines": "3",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\William\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\e1546c1ab76a4a9171bafa7c4329cf77\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\Utilisateur\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\93b1651837a4342f755aef0289f0e1e4\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
