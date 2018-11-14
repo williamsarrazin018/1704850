@@ -28,7 +28,7 @@ public class UsagerCourant {
         if (siUsagerConnecte()) {
 
             //On prend comme id le Uid de l'utilisateur
-            id = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+            id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         }
 

@@ -52,11 +52,13 @@ public final class ControleurModeles {
 
         Modele modele = modelesEnMemoire.get(nomModele);
 
+        String cheminDeSauvegarde = getCheminSauvegarde(nomModele);
+
         if(modele != null){
 
             Map<String, Object> objetJson = modele.enObjetJson();
 
-            sourceDeDonnees.sauvegarderModele(nomModele, objetJson);
+            sourceDeDonnees.sauvegarderModele(cheminDeSauvegarde, objetJson);
 
         }
     }
@@ -68,7 +70,8 @@ public final class ControleurModeles {
         //Si pas de modele
         if(modele == null){
             Log.d("atelier12", "pas modele");
-            creerModeleEtChargerDonnees(nomModele, listenerGetModele);
+            final String nomMod = nomModele;
+            creerModeleEtChargerDonnees(nomMod, listenerGetModele);
 
         } else {
 
@@ -125,7 +128,8 @@ public final class ControleurModeles {
 
                     MParametres params = (MParametres) modele;
                     //Nouveau modele avec params de nouvelle partie
-                    listenerGetModele.reagirAuModele(new MPartie(params.getParametresPartie().cloner()));
+                    MPartie mPartie = new MPartie(params.getParametresPartie().cloner());
+                    listenerGetModele.reagirAuModele(mPartie);
                 }
             });
 
@@ -186,8 +190,10 @@ public final class ControleurModeles {
 
         String save = getCheminSauvegarde(nomModele);
 
+        int ind = 0;
+
         //Charger d'apres la sequence
-        chargementViaSequence(modele, save, listenerGetModele, 0);
+        chargementViaSequence(modele, save, listenerGetModele, ind);
 
     }
 
@@ -195,15 +201,13 @@ public final class ControleurModeles {
 
         Log.d("atelier12", "load sequence " + indiceSourceCourante + modele.getClass().getSimpleName());
         Log.d("sequence", "seq chargement length  " + sequenceDeChargement.length);
-        if( indiceSourceCourante < sequenceDeChargement.length ){
+        if( indiceSourceCourante >= sequenceDeChargement.length ){
 
-            //Source suivante ou courante
-            chargementViaSourceCouranteOuSuivante(modele, cheminDeSauvegarde, listenerGetModele, indiceSourceCourante);
+            terminerChargement(modele, listenerGetModele);
 
         }else{
-            Log.d("atelier12", "load sequence end " + indiceSourceCourante + modele.getClass().getSimpleName());
-            //On fini le chargement
-            terminerChargement(modele, listenerGetModele);
+
+            chargementViaSourceCouranteOuSuivante(modele, cheminDeSauvegarde, listenerGetModele, indiceSourceCourante);
 
         }
 
