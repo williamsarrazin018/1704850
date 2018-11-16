@@ -21,5 +21,6 @@
     <string name="joueur2">joueur2</string>
 
     <string name="connexion">Connexion</string>
+    <string name="jouer_en_ligne">Jouer en ligne</string>
 
 </resources>

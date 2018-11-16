@@ -18,4 +18,6 @@
 
     <string name="connexion">Login</string>
 
+    <string name="jouer_en_ligne">Play Online</string>
+
 </resources>

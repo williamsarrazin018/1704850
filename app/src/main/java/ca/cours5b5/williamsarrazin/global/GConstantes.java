@@ -19,6 +19,17 @@ public final class GConstantes {
 
     public static final String EXTENSION_PAR_DEFAUT=".json";
 
+    public static final int NOMBRE_DE_VALEURS_A_CHARGER_DU_SERVEUR_PAR_DEFAUT = 10;
+
+    public static final String CLE_ID_JOUEUR_HOTE = "idJoueurHote";
+    public static final String CLE_ID_JOUEUR_INVITE = "idJoueurInvite";
+
+    public static final String CLE_COUPS_JOUEUR_HOTE = "coupsJoueurHote";
+    public static final String CLE_COUPS_JOUEUR_INVITE = "coupsJoueurInvite";
+
+    //TODO Remplacer ids par mes usagers
+    public static final String FIXME_JSON_PARTIE_RESEAU = "{\"listeCoups\":[],\"parametres\":{\"largeur\":\"4\",\"hauteur\":\"6\"},\"idJoueurInvite\":\"sdfghjgcgrh\",\"idJoueurHote\":\"asdasdadad\"}";
+
 
 
 }

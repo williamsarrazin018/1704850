@@ -71,6 +71,7 @@ public class VPartie extends Vue {
                 });
     }
 
+
     private void preparerAffichage(MPartie partie) {
 
         MParametresPartie parametresPartie = partie.getParametres();
@@ -97,6 +98,10 @@ public class VPartie extends Vue {
 
         grille.afficherJetons(partie.getGrille());
 
+    }
+
+    public String getnomModele(){
+        return MPartie.class.getSimpleName();
     }
 
 }

@@ -16,6 +16,7 @@ import ca.cours5b5.williamsarrazin.donnees.SourceDeDonnees;
 import ca.cours5b5.williamsarrazin.exceptions.ErreurModele;
 import ca.cours5b5.williamsarrazin.modeles.MParametres;
 import ca.cours5b5.williamsarrazin.modeles.MPartie;
+import ca.cours5b5.williamsarrazin.modeles.MPartieReseau;
 import ca.cours5b5.williamsarrazin.modeles.Modele;
 import ca.cours5b5.williamsarrazin.usagers.UsagerCourant;
 
@@ -133,7 +134,23 @@ public final class ControleurModeles {
                 }
             });
 
-        }else{
+        } else if( nomModele.equals(MPartieReseau.class.getSimpleName()) ){
+
+            getModele(MParametres.class.getSimpleName(), new ListenerGetModele() {
+
+                @Override
+                public void reagirAuModele(Modele modele) {
+
+                    MParametres params = (MParametres) modele;
+
+                    //Nouveau modele avec params de nouvelle partie
+                    MPartie mPartie = new MPartie(params.getParametresPartie().cloner());
+
+                    listenerGetModele.reagirAuModele(mPartie);
+                }
+
+            });
+        } else{
 
             throw new ErreurModele("Modèle inconnu: " + nomModele);
 

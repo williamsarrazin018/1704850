@@ -33,6 +33,24 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
         fournirActionDemarrerPartie();
 
         fournirActionConnexion();
+
+        fournirActionJoindreOuCreerPartieReseaau();
+    }
+
+    private void fournirActionJoindreOuCreerPartieReseaau() {
+
+        Log.d("Atelier13", "Action DemarrerPartieReseau: ");
+        ControleurAction.fournirAction(this,
+                GCommande.JOINDRE_OU_CREER_PARTIE_RESEAU,
+                new ListenerFournisseur() {
+                    @Override
+                    public void executer(Object... args) {
+
+                        transitionPartieReseau();
+
+                    }
+                });
+
     }
 
     private void fournirActionConnexion() {
@@ -75,6 +93,16 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
 
                     }
                 });
+    }
+
+    private void transitionPartieReseau() {
+
+        Intent intentionPartieReseau = new Intent(this, APartieReseau.class);
+
+        intentionPartieReseau.putExtra("JSON", GConstantes.FIXME_JSON_PARTIE_RESEAU);
+
+        startActivity(intentionPartieReseau);
+
     }
 
     private void transitionParametres(){

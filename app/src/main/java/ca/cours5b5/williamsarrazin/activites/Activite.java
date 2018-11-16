@@ -7,6 +7,7 @@ import ca.cours5b5.williamsarrazin.controleurs.ControleurModeles;
 import ca.cours5b5.williamsarrazin.donnees.Disque;
 import ca.cours5b5.williamsarrazin.donnees.SauvegardeTemporaire;
 import ca.cours5b5.williamsarrazin.donnees.Serveur;
+import ca.cours5b5.williamsarrazin.donnees.Transition;
 import ca.cours5b5.williamsarrazin.modeles.MParametres;
 
 
@@ -23,7 +24,7 @@ public abstract class Activite extends AppCompatActivity {
 
     protected void initialiserControleurModeles(Bundle savedInstanceState) {
 
-        ControleurModeles.setSequenceDeChargement( new SauvegardeTemporaire(savedInstanceState), Serveur.getInstance(), Disque.getInstance());
+        ControleurModeles.setSequenceDeChargement( new SauvegardeTemporaire(savedInstanceState), Serveur.getInstance(), Disque.getInstance(), new Transition(getIntent().getExtras()));
         
     }
 

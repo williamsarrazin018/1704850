@@ -3,6 +3,7 @@ package ca.cours5b5.williamsarrazin.vues;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import ca.cours5b5.williamsarrazin.R;
@@ -18,6 +19,9 @@ public class VMenuPrincipal extends Vue {
 
     private Button boutonPartie;
     private Action actionPartie;
+
+    private Button boutonPartieReseau;
+    private Action actionPartieReseau;
 
     private Button boutonConnexion;
     private Action actionConnexion;
@@ -57,6 +61,8 @@ public class VMenuPrincipal extends Vue {
 
         boutonConnexion = findViewById(R.id.btnConnexion);
 
+        boutonPartieReseau = findViewById(R.id.bouton_jouer_en_ligne);
+
     }
 
     private void demanderActions() {
@@ -69,6 +75,7 @@ public class VMenuPrincipal extends Vue {
 
         actionConnexion =  ControleurAction.demanderAction(GCommande.CONNEXION);
 
+        actionPartieReseau = ControleurAction.demanderAction(GCommande.JOINDRE_OU_CREER_PARTIE_RESEAU);
 
     }
 
@@ -81,6 +88,8 @@ public class VMenuPrincipal extends Vue {
 
         installerListenerConnexion();
 
+        installerListenerPartieReseau();
+
     }
 
     private void installerListenerConnexion() {
@@ -89,6 +98,18 @@ public class VMenuPrincipal extends Vue {
             @Override
             public void onClick(View view) {
                 actionConnexion.executerDesQuePossible();
+            }
+        });
+
+    }
+
+    private void installerListenerPartieReseau() {
+
+        boutonPartieReseau.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                actionPartieReseau.executerDesQuePossible();
             }
         });
 
