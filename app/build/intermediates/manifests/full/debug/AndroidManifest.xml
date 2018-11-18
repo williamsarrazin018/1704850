@@ -31,6 +31,8 @@
         android:theme="@style/AppTheme" >
         <activity android:name="ca.cours5b5.williamsarrazin.activites.AParametres" >
         </activity>
+        <activity android:name="ca.cours5b5.williamsarrazin.activites.APartieReseau" >
+        </activity>
         <activity android:name="ca.cours5b5.williamsarrazin.activites.APartie" >
         </activity>
         <activity android:name="ca.cours5b5.williamsarrazin.activites.AMenuPrincipal" >

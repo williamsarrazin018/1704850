@@ -3,6 +3,7 @@ package ca.cours5b5.williamsarrazin.activites;
 import android.os.Bundle;
 
 import ca.cours5b5.williamsarrazin.R;
+import ca.cours5b5.williamsarrazin.controleurs.ControleurPartieReseau;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
 
 public class APartieReseau extends Activite implements Fournisseur {
@@ -13,22 +14,29 @@ public class APartieReseau extends Activite implements Fournisseur {
         setContentView(R.layout.activity_partie_reseau);
     }
 
+
     @Override
     protected void onPause() {
         super.onPause();
-        /*
-         * Avec ControleurPartieReseau, détruire la partie sur le serveur
-         * Déconnecter ControleurPartieReseau du serveur
-         */
+        //Detruire la [artie du serveur avec le controller et le deconnecter du serveur aussi
+
+        ControleurPartieReseau.getInstance().detruireSauvegardeServeur();
+
+        ControleurPartieReseau.getInstance().deconnecterDuServeur();
     }
 
+    //Connecter le controller au serveur
     @Override
     protected void onResume() {
         super.onResume();
-        /*
-         * Connecter le ControleurPartieReseau au serveur*/
+
+        ControleurPartieReseau.getInstance().connecterAuServeur();
+
     }
 
-
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+    }
 
 }

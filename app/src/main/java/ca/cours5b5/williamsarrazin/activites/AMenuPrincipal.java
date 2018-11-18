@@ -15,6 +15,7 @@ import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerFournisseur;
 import ca.cours5b5.williamsarrazin.global.GCommande;
 import ca.cours5b5.williamsarrazin.global.GConstantes;
+import ca.cours5b5.williamsarrazin.modeles.MPartieReseau;
 
 public class AMenuPrincipal extends Activite implements Fournisseur {
 
@@ -99,7 +100,7 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
 
         Intent intentionPartieReseau = new Intent(this, APartieReseau.class);
 
-        intentionPartieReseau.putExtra("JSON", GConstantes.FIXME_JSON_PARTIE_RESEAU);
+        intentionPartieReseau.putExtra(MPartieReseau.class.getSimpleName(), GConstantes.FIXME_JSON_PARTIE_RESEAU);
 
         startActivity(intentionPartieReseau);
 

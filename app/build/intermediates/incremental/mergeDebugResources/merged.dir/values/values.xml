@@ -995,6 +995,7 @@
     <string name="google_storage_bucket" translatable="false">project-8433944072700876249.appspot.com</string>
     <string name="hauteur">Hauteur: </string>
     <string name="jouer">Jouer</string>
+    <string name="jouer_en_ligne">Jouer en ligne</string>
     <string name="joueur1">joueur1</string>
     <string name="joueur2">joueur2</string>
     <string name="largeur">Largeur: </string>

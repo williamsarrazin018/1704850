@@ -1,6 +1,5 @@
 package ca.cours5b5.williamsarrazin.modeles;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import ca.cours5b5.williamsarrazin.controleurs.ControleurAction;
@@ -15,22 +14,21 @@ import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
 public class MPartieReseau extends MPartie implements Fournisseur, Identifiable {
 
     @AttributSerialisable
-    public String idJoueurInvite;
+    public String idJoueurInvite = "CQSxbPFSGbhjHOxMBIJiP4R9Hn92";
     private String __idJoueurInvite = "idJoueurInvite";
 
     @AttributSerialisable
-    public String idJoueurHote;
+    public String idJoueurHote = "85NOvo4XZ7QWS5NAEGZkJJFjz9M2";
     private String __idJoueurHote = "idJoueurHote";
 
     public MPartieReseau(MParametresPartie parametres) {
         super(parametres);
+        fournirActionRecevoirCoup();
     }
 
     public String getId() {
-        /*
-         * utiliser l'id du joueur hôte
-         */
-        return null;
+
+        return idJoueurHote;
     }
 
     private void fournirActionRecevoirCoup() {
@@ -39,8 +37,8 @@ public class MPartieReseau extends MPartie implements Fournisseur, Identifiable 
                     @Override
                     public void executer(Object... args) {
                         try{
-
-                            recevoirCoupReseau( (int) args[0]);
+                            //Chercher coup du reseau
+                            recevoirCoupReseau( Integer.parseInt((String)args[0]));
 
                         }catch(ClassCastException e){
 
@@ -63,7 +61,7 @@ public class MPartieReseau extends MPartie implements Fournisseur, Identifiable 
 
                             int colonne = (Integer) args[0];
 
-                            jouerCoup(colonne);
+                            jouerCoup((int) args[0]);
 
                             ControleurPartieReseau.getInstance().transmettreCoup(colonne);
 
@@ -77,25 +75,29 @@ public class MPartieReseau extends MPartie implements Fournisseur, Identifiable 
     }
 
     private void recevoirCoupReseau(int colonne) {
-
+        //Jouer le coup
+        jouerCoup(colonne);
     }
 
     @Override
     public void aPartirObjetJson(Map<String, Object> objetJson) throws ErreurSerialisation {
-        /*
-         * charger les champs
-         * appeler aussi super
-         */
+        //Charger les champs
+
+        super.aPartirObjetJson(objetJson);
+        idJoueurInvite = (String) objetJson.get(__idJoueurInvite);
+        idJoueurHote = (String) objetJson.get(__idJoueurHote);
+
     }
 
     @Override
     public Map<String, Object> enObjetJson() throws ErreurSerialisation {
 
-        Map<String, Object> objetJson = new HashMap<>();
+        //Appel methode de la superclasse pour init le map
+        Map<String, Object> objetJson = super.enObjetJson();
 
-        objetJson.put(__idJoueurInvite, idJoueurHote.toString());
+        objetJson.put(__idJoueurInvite, idJoueurInvite);
 
-        objetJson.put(__idJoueurHote, idJoueurInvite.toString());
+        objetJson.put(__idJoueurHote, idJoueurHote);
 
         return objetJson;
     }

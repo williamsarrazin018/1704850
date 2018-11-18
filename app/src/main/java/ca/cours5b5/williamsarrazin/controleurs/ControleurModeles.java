@@ -14,6 +14,7 @@ import ca.cours5b5.williamsarrazin.donnees.ListenerChargement;
 import ca.cours5b5.williamsarrazin.donnees.Serveur;
 import ca.cours5b5.williamsarrazin.donnees.SourceDeDonnees;
 import ca.cours5b5.williamsarrazin.exceptions.ErreurModele;
+import ca.cours5b5.williamsarrazin.modeles.Identifiable;
 import ca.cours5b5.williamsarrazin.modeles.MParametres;
 import ca.cours5b5.williamsarrazin.modeles.MPartie;
 import ca.cours5b5.williamsarrazin.modeles.MPartieReseau;
@@ -35,6 +36,7 @@ public final class ControleurModeles {
         modelesEnMemoire = new HashMap<>();
 
         listeDeSauvegardes = new ArrayList<>();
+
         listeDeSauvegardes.add(Disque.getInstance());
         //Ajout serveur comme source de donnée
         listeDeSauvegardes.add(Serveur.getInstance());
@@ -81,29 +83,6 @@ public final class ControleurModeles {
         }
     }
 
-/*
-    private static Modele chargerViaSequenceDeChargement(final String nomModele){
-
-        Modele modele = creerModeleSelonNom(nomModele);
-
-        modelesEnMemoire.put(nomModele, modele);
-
-        for(SourceDeDonnees sourceDeDonnees : sequenceDeChargement){
-
-            Map<String, Object> objetJson = sourceDeDonnees.chargerModele(getCheminSauvegarde(nomModele));
-
-            if(objetJson != null){
-
-                modele.aPartirObjetJson(objetJson);
-                break;
-
-            }
-
-        }
-
-        return modele;
-    }
-*/
     public static void sauvegarderModele(String nomModele) throws ErreurModele {
 
         for(SourceDeDonnees source : listeDeSauvegardes){
@@ -128,8 +107,10 @@ public final class ControleurModeles {
                 public void reagirAuModele(Modele modele) {
 
                     MParametres params = (MParametres) modele;
+
                     //Nouveau modele avec params de nouvelle partie
                     MPartie mPartie = new MPartie(params.getParametresPartie().cloner());
+
                     listenerGetModele.reagirAuModele(mPartie);
                 }
             });
@@ -144,7 +125,7 @@ public final class ControleurModeles {
                     MParametres params = (MParametres) modele;
 
                     //Nouveau modele avec params de nouvelle partie
-                    MPartie mPartie = new MPartie(params.getParametresPartie().cloner());
+                    MPartieReseau mPartie = new MPartieReseau(params.getParametresPartie().cloner());
 
                     listenerGetModele.reagirAuModele(mPartie);
                 }
@@ -177,10 +158,17 @@ public final class ControleurModeles {
 
     private static String getCheminSauvegarde(String nomModele) {
 
-        //Chemin ou on va sauvegarder
-        String chemin = nomModele + '/' + UsagerCourant.getId();
+        String resultat;
 
-        return chemin;
+        Modele modele = modelesEnMemoire.get(nomModele);
+
+        if(modele!=null && modele instanceof Identifiable){
+            resultat = nomModele + "/" + ((Identifiable) modele).getId();
+        }else{
+            resultat = nomModele + "/" + UsagerCourant.getId();
+        }
+
+        return resultat;
 
     }
 

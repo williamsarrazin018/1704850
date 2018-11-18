@@ -1,5 +1,7 @@
 package ca.cours5b5.williamsarrazin.controleurs;
 
+import android.util.Log;
+
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerGetModele;
 import ca.cours5b5.williamsarrazin.donnees.Serveur;
 import ca.cours5b5.williamsarrazin.global.GCommande;
@@ -20,6 +22,7 @@ public final class ControleurPartieReseau {
     private ProxyListe proxyEmettreCoups;
     private ProxyListe proxyRecevoirCoups;
 
+
     public void connecterAuServeur() {
 
         ControleurModeles.getModele(MPartieReseau.class.getSimpleName(), new ListenerGetModele() {
@@ -29,6 +32,9 @@ public final class ControleurPartieReseau {
 
                 MPartieReseau mPartieReseau = (MPartieReseau) modele;
 
+                Log.d("atelier13", "connexcion serveur");
+
+                //Appel autre methode de connexion
                 connecterAuServeur(mPartieReseau.getId());
 
             }
@@ -42,21 +48,24 @@ public final class ControleurPartieReseau {
     private void connecterAuServeur(String idJoueurHote) {
 
 
+        Log.d("Atelier13", "idJoueurHote : " + idJoueurHote + " IdCourant : " + UsagerCourant.getId());
+        //Si user courant est l'hote
         if(UsagerCourant.getId().equals(idJoueurHote)){
 
             connecterEnTantQueJoueurHote(getCheminCoupsJoueurHote(idJoueurHote), getCheminCoupsJoueurInvite(idJoueurHote));
 
+            // Si le user courant est invite
         }else{
 
             connecterEnTantQueJoueurInvite(getCheminCoupsJoueurHote(idJoueurHote), getCheminCoupsJoueurInvite(idJoueurHote));
 
         }
 
-        proxyEmettreCoups.connecterAuServeur();
+        proxyRecevoirCoups.setActionNouvelItem(GCommande.RECEVOIR_COUP_RESEAU);
 
         proxyRecevoirCoups.connecterAuServeur();
+        proxyEmettreCoups.connecterAuServeur();
 
-        proxyRecevoirCoups.setActionNouvelItem(GCommande.RECEVOIR_COUP_RESEAU);
 
     }
 
@@ -72,13 +81,12 @@ public final class ControleurPartieReseau {
     private void connecterEnTantQueJoueurInvite(String cheminCoupsJoueurHote, String cheminCoupsJoueurInvite) {
 
         proxyRecevoirCoups = new ProxyListe(cheminCoupsJoueurHote);
+
         proxyEmettreCoups = new ProxyListe(cheminCoupsJoueurInvite);
 
     }
 
     public void deconnecterDuServeur() {
-
-        proxyEmettreCoups.detruireValeurs();
 
         proxyEmettreCoups.deconnecterDuServeur();
         proxyRecevoirCoups.deconnecterDuServeur();

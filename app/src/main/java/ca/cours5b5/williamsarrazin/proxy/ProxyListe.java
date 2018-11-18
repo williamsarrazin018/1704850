@@ -1,17 +1,25 @@
 package ca.cours5b5.williamsarrazin.proxy;
 
-import android.app.DownloadManager;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import ca.cours5b5.williamsarrazin.controleurs.Action;
 import ca.cours5b5.williamsarrazin.controleurs.ControleurAction;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
 import ca.cours5b5.williamsarrazin.global.GCommande;
+import ca.cours5b5.williamsarrazin.global.GConstantes;
 
 public class ProxyListe extends Proxy implements Fournisseur {
 
     private ChildEventListener childEventListener;
 
-    private DownloadManager.Query requete;
+    private Query requete;
 
     private Action actionNouvelItem;
 
@@ -19,6 +27,7 @@ public class ProxyListe extends Proxy implements Fournisseur {
 
     public ProxyListe(String cheminServeur) {
         super(cheminServeur);
+        this.noeudsAjoutes = new ArrayList<>();
     }
 
     public void setActionNouvelItem(GCommande commande) {
@@ -29,8 +38,12 @@ public class ProxyListe extends Proxy implements Fournisseur {
 
     public void ajouterValeur(Object valeur) {
 
-        DatabaseReference noeud = noeudServeur.push();
+        //Noeud superclasse
+        DatabaseReference noeud = super.noeudServeur.push();
+
         noeud.setValue(valeur);
+        //AjouterNoeuds dans la liste
+        noeudsAjoutes.add(noeud);
     }
 
     @Override
@@ -50,28 +63,33 @@ public class ProxyListe extends Proxy implements Fournisseur {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                Object valeurAjoutee = dataSnapshot.getValue();
+                if (actionNouvelItem != null) {
+
+                    actionNouvelItem.setArguments(dataSnapshot.getValue().toString());
+                    actionNouvelItem.executerDesQuePossible();
+
+                }
 
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                //unused
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+                //unused
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
+                //unused
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                //unused
             }
         };
 
@@ -81,20 +99,25 @@ public class ProxyListe extends Proxy implements Fournisseur {
 
     protected Query getRequete() {
 
-        return noeudServeur.orderByValue().limitToLast(GConstantes.NOMBRE_DE_VALEURS_A_CHARGER_DU_SERVEUR_PAR_DEFAUT);
+        return super.noeudServeur.orderByKey().limitToFirst(GConstantes.NOMBRE_DE_VALEURS_A_CHARGER_DU_SERVEUR_PAR_DEFAUT);
     }
 
     @Override
     public void deconnecterDuServeur() {
-        /*
-         * retirer le listener
-         * oublier les noeuds ajoutés
-         * déconnecter via super
-         */
+        //Deconnecter et enlever listener
+        super.deconnecterDuServeur();
+        requete.removeEventListener(childEventListener);
     }
 
     @Override
     public void detruireValeurs() {
+
+        //Enlever valeurs des noeuds
+        for(DatabaseReference noeud : noeudsAjoutes){
+
+            noeud.removeValue();
+
+        }
 
     }
 }
