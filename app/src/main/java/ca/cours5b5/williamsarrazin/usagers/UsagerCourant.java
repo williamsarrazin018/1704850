@@ -2,38 +2,32 @@ package ca.cours5b5.williamsarrazin.usagers;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.Objects;
+import ca.cours5b5.williamsarrazin.global.GConstantes;
 
-public class UsagerCourant {
+public final class UsagerCourant {
 
-    public static boolean siUsagerConnecte() {
+    private UsagerCourant(){}
 
-        //On regarde s'il y a des usagers de connectés
-
-        boolean connected = false;
-
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            connected = true;
-        }
-
-        return connected;
+    public static boolean siUsagerConnecte(){
+        return FirebaseAuth.getInstance().getUid() != null;
     }
 
     public static String getId(){
 
-        //L'id est 0 par défaut (Pas de connectés)
+        if(siUsagerConnecte()){
 
-        String id = "0";
+            return FirebaseAuth.getInstance().getUid();
 
-        if (siUsagerConnecte()) {
+        }else{
 
-            //On prend comme id le Uid de l'utilisateur
-            id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            return GConstantes.ID_PAR_DEFAUT;
 
         }
-
-        return id;
-
     }
+
+    public static boolean estCeUsagerCourant(String idJoueur) {
+        return getId().equals(idJoueur);
+    }
+
 
 }

@@ -29,12 +29,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="ca.cours5b5.williamsarrazin.activites.AParametres" >
-        </activity>
-        <activity android:name="ca.cours5b5.williamsarrazin.activites.APartieReseau" >
-        </activity>
-        <activity android:name="ca.cours5b5.williamsarrazin.activites.APartie" >
-        </activity>
+        <activity android:name="ca.cours5b5.williamsarrazin.activites.AParametres" />
+        <activity android:name="ca.cours5b5.williamsarrazin.activites.APartie" />
+        <activity android:name="ca.cours5b5.williamsarrazin.activites.APartieReseau" />
         <activity android:name="ca.cours5b5.williamsarrazin.activites.AMenuPrincipal" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +39,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="ca.cours5b5.williamsarrazin.activites.AEnAttenteAdversaire" />
 
         <meta-data
             android:name="com.google.android.gms.version"

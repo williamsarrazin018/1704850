@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
 MERGED from [com.firebaseui:firebase-ui-auth:3.3.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-3.3.1.aar\efb063a758c94c47c047c42076bf43b5\AndroidManifest.xml:2:1-93:12
 MERGED from [com.android.support:design:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\707a38c6c6174c86545fd5a6ecc98aab\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:customtabs:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.0.aar\0f5df08fc46ada2f4a16a7d6933b5aaa\AndroidManifest.xml:17:1-22:12
@@ -47,25 +47,25 @@ MERGED from [android.arch.lifecycle:livedata:1.1.0] C:\Users\Utilisateur\.gradle
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\27bdaaa4923a60c6a1e845d7a37f2b98\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4bbaca47308575354a7ad397a6e154fb\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.2.aar\e7ff9e583e27cf5f93c0b635c662a5c4\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
 	package
 		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:5:5-26:19
+ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:5:5-23:19
 MERGED from [com.firebaseui:firebase-ui-auth:3.3.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-3.3.1.aar\efb063a758c94c47c047c42076bf43b5\AndroidManifest.xml:15:5-91:19
 MERGED from [com.firebaseui:firebase-ui-auth:3.3.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-3.3.1.aar\efb063a758c94c47c047c42076bf43b5\AndroidManifest.xml:15:5-91:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\47ecf0ab98f80350bcff08a8d858c28c\AndroidManifest.xml:9:5-20
@@ -111,31 +111,35 @@ MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] C:\Us
 	android:theme
 		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:11:9-40
 activity#ca.cours5b5.williamsarrazin.activites.AParametres
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:12:9-13:20
+ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:12:9-68
 	android:name
 		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:12:19-56
+activity#ca.cours5b5.williamsarrazin.activites.APartie
+ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:13:9-64
+	android:name
+		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:13:19-52
 activity#ca.cours5b5.williamsarrazin.activites.APartieReseau
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:14:9-15:20
+ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:14:9-70
 	android:name
 		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:14:19-58
-activity#ca.cours5b5.williamsarrazin.activites.APartie
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:16:9-17:20
-	android:name
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:16:19-52
 activity#ca.cours5b5.williamsarrazin.activites.AMenuPrincipal
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:18:9-25:20
+ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:15:9-21:20
 	android:name
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:18:19-59
+		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:15:19-59
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:19:13-23:29
+ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:16:13-20:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:17:17-69
 	android:name
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:17:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:22:17-77
+ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:19:17-77
 	android:name
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:22:27-74
+		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:19:27-74
+activity#ca.cours5b5.williamsarrazin.activites.AEnAttenteAdversaire
+ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:22:9-77
+	android:name
+		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:22:19-65
 uses-sdk
 INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml

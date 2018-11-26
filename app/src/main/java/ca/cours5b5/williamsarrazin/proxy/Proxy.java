@@ -1,7 +1,5 @@
 package ca.cours5b5.williamsarrazin.proxy;
 
-import android.util.Log;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -11,22 +9,25 @@ public abstract class Proxy {
 
     protected DatabaseReference noeudServeur;
 
-    public Proxy(String cheminServeur) {
+    public Proxy(String cheminServeur){
         this.cheminServeur = cheminServeur;
     }
 
-    public void connecterAuServeur() {
+    public void connecterAuServeur(){
 
         noeudServeur = FirebaseDatabase.getInstance().getReference(cheminServeur);
-        Log.d("Atelier13", "connecterAuServeurproxy");
+
     }
 
-    public void deconnecterDuServeur() {
-        //Oublier noeud
+    public void deconnecterDuServeur(){
         noeudServeur = null;
-        detruireValeurs();
+    }
 
+    protected boolean siConnecte(){
+        return noeudServeur != null;
     }
 
     public abstract void detruireValeurs();
+
+
 }
