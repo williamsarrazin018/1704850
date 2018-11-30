@@ -3,15 +3,7 @@ package ca.cours5b5.williamsarrazin.vues;
 import android.content.Context;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.util.Log;
-import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.BounceInterpolator;
-import android.widget.GridLayout;
-
 
 import ca.cours5b5.williamsarrazin.R;
 import ca.cours5b5.williamsarrazin.modeles.MJeton;
@@ -90,14 +82,19 @@ public class VCase extends AppCompatButton {
 
     public void animationJeton() {
 
-        float y = -getResources().getDisplayMetrics().heightPixels + ( getHeight() * rangee);
+        int coordonnes[] = new int[2];
+        this.getLocationOnScreen(coordonnes);
+
+        //float y = -getResources().getDisplayMetrics().heightPixels + ( getHeight() * rangee);
+
+        float y = -getResources().getDisplayMetrics().heightPixels + coordonnes[1];
 
         this.setY(y);
 
         float basEcran = 0;
 
         //Faire l'animation
-        this.animate().translationY(basEcran).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(500);
+        this.animate().translationY(basEcran).setInterpolator(new AccelerateInterpolator()).setDuration(750);
 
         animation = true;
 

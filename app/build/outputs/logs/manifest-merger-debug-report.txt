@@ -1,61 +1,9 @@
 -- Merging decision tree log ---
 manifest
-<<<<<<< HEAD
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
-MERGED from [com.firebaseui:firebase-ui-auth:3.3.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-3.3.1.aar\efb063a758c94c47c047c42076bf43b5\AndroidManifest.xml:2:1-93:12
-MERGED from [com.android.support:design:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\707a38c6c6174c86545fd5a6ecc98aab\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:customtabs:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.0.aar\0f5df08fc46ada2f4a16a7d6933b5aaa\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\8b439cbaf522a4d7f02337667d626386\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\47ecf0ab98f80350bcff08a8d858c28c\AndroidManifest.xml:2:1-11:12
-MERGED from [com.firebaseui:firebase-ui-database:3.3.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-ui-database-3.3.1.aar\ac01182081a7bf8cd03dd4b626a71fb5\AndroidManifest.xml:2:1-13:12
-MERGED from [com.firebaseui:firebase-ui-common:3.3.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-ui-common-3.3.1.aar\66bfa673240b77603b67f788ba7d9797\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\105c1cbf98f091edd4a4b28434e8b3ef\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cardview-v7:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.0.aar\1bef7300159872ab3895a994ffb6e005\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:extensions:1.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\extensions-1.1.0.aar\9d27ac1d23b4c3d37d18d99a6b11399d\AndroidManifest.xml:17:1-30:12
-MERGED from [com.android.support:transition:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\c4a7c87ebfdde7bf921941f57628b1dd\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:firebase-database:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-database-15.0.0.aar\58034143613c75f62c8f5580e54f311b\AndroidManifest.xml:2:1-8:12
-MERGED from [com.google.firebase:firebase-auth:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-auth-15.0.0.aar\3453987c7184138238655296015876c3\AndroidManifest.xml:17:1-32:12
-MERGED from [com.google.android.gms:play-services-auth:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-auth-15.0.0.aar\952f0c01363bffb52ef1df7f78923d52\AndroidManifest.xml:17:1-39:12
-MERGED from [com.google.firebase:firebase-database-connection:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-database-connection-15.0.0.aar\b76a1ff838eb3a116ce0abe262052680\AndroidManifest.xml:2:1-8:12
-MERGED from [com.google.firebase:firebase-analytics:15.0.2] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-analytics-15.0.2.aar\1a8da00e32f6ff804f3a74950dbb1ee5\AndroidManifest.xml:17:1-55:12
-MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.2.aar\83453f0832f8eb5eab8449f0592770d9\AndroidManifest.xml:17:1-41:12
-MERGED from [com.google.firebase:firebase-iid:15.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.1.0.aar\158002a2701272be6d53f2ff7704a4fb\AndroidManifest.xml:17:1-65:12
-MERGED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\f4c21d6c7b4a824e333b515954b650ea\AndroidManifest.xml:2:1-15:12
-MERGED from [com.google.android.gms:play-services-flags:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-flags-15.0.1.aar\5aa5f231b37b0e75b6aa6a38b87b30ac\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-auth-api-phone:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-auth-api-phone-15.0.1.aar\dbf8129fbb60db43193d77c5884aea0c\AndroidManifest.xml:2:1-7:12
-MERGED from [com.google.android.gms:play-services-auth-base:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-auth-base-15.0.0.aar\f407c66bce78289a0ee152ba1f68f1fe\AndroidManifest.xml:2:1-7:12
-MERGED from [com.google.firebase:firebase-iid-interop:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-15.0.0.aar\e63f22897ab8502065d17b97b879d0e7\AndroidManifest.xml:2:1-10:12
-MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\a8b03ae89c62c43043f6f0085a4a3486\AndroidManifest.xml:17:1-29:12
-MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\a2cfcaf82da9ea7bc54d7d0b00f1e88f\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.firebase:firebase-database-collection:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-database-collection-15.0.1.aar\e3421f558ddd7e7488787de0aef0a678\AndroidManifest.xml:2:1-8:12
-MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\b01c63f4d72cf096ab7823ced82d2004\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\a833997d178a608d7c98c916d4a6b642\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\8c3e786de9a58d101a3d0cab50ccafb6\AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\719dd75c785bd574c5721dfc85279b8c\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\e8fd9db0117f10f1f5821eae3e4a534e\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\9a62fb7319d6ae943e02424a4b9a934f\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\3c8f63e01c77e21d9e7d6c0871fb1dd2\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\524b1bc1881f2df26bace9d6916a6bba\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\1fac63b34f094ead797b5cb98250de7b\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\79fa55d4e65fa79d21e1ddca8542ef6b\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\9d7b88d6fc41cdad9e53c5d8d1002b68\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\758083f9ceb49887b6ba75a57d3088c8\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\6840c40cf45f953a47e407c0a167010f\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata:1.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\livedata-1.1.0.aar\a738bcaa3c64c3645363f3b86c768813\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\27bdaaa4923a60c6a1e845d7a37f2b98\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4bbaca47308575354a7ad397a6e154fb\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.2.aar\e7ff9e583e27cf5f93c0b635c662a5c4\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
-=======
-ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-25:12
 MERGED from [com.firebaseui:firebase-ui-auth:3.3.1] C:\Users\William\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-3.3.1.aar\65051a392960dad0f8f6be8023a0ae4d\AndroidManifest.xml:2:1-93:12
 MERGED from [com.android.support:design:27.1.0] C:\Users\William\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\0320ba873d966a2293ec379c749fb2d9\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:customtabs:27.1.0] C:\Users\William\.gradle\caches\transforms-1\files-1.1\customtabs-27.1.0.aar\84566f52dc753870dad5bb7d89c768e8\AndroidManifest.xml:17:1-22:12
@@ -99,71 +47,25 @@ MERGED from [android.arch.lifecycle:livedata:1.1.0] C:\Users\William\.gradle\cac
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\William\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\e6b4ad2bcd3f5795c2fda822fbf023b1\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\William\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\dd0a1e74c0cf969a8a9e15cde237fbcd\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] C:\Users\William\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.2.aar\793515dd7921c23cf2a50e250df27357\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-28:12
->>>>>>> origin/master
+INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-25:12
 	package
 		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml
 	android:versionName
-<<<<<<< HEAD
-		INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
-		INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml
-	android:versionCode
-		INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:2:1-25:12
-		INJECTED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml
-=======
 		INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml
->>>>>>> origin/master
 	xmlns:android
 		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:2:11-69
 application
-<<<<<<< HEAD
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:5:5-23:19
-MERGED from [com.firebaseui:firebase-ui-auth:3.3.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-3.3.1.aar\efb063a758c94c47c047c42076bf43b5\AndroidManifest.xml:15:5-91:19
-MERGED from [com.firebaseui:firebase-ui-auth:3.3.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-3.3.1.aar\efb063a758c94c47c047c42076bf43b5\AndroidManifest.xml:15:5-91:19
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\47ecf0ab98f80350bcff08a8d858c28c\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\47ecf0ab98f80350bcff08a8d858c28c\AndroidManifest.xml:9:5-20
-MERGED from [android.arch.lifecycle:extensions:1.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\extensions-1.1.0.aar\9d27ac1d23b4c3d37d18d99a6b11399d\AndroidManifest.xml:22:5-28:19
-MERGED from [android.arch.lifecycle:extensions:1.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\extensions-1.1.0.aar\9d27ac1d23b4c3d37d18d99a6b11399d\AndroidManifest.xml:22:5-28:19
-MERGED from [com.google.firebase:firebase-auth:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-auth-15.0.0.aar\3453987c7184138238655296015876c3\AndroidManifest.xml:22:5-30:19
-MERGED from [com.google.firebase:firebase-auth:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-auth-15.0.0.aar\3453987c7184138238655296015876c3\AndroidManifest.xml:22:5-30:19
-MERGED from [com.google.android.gms:play-services-auth:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-auth-15.0.0.aar\952f0c01363bffb52ef1df7f78923d52\AndroidManifest.xml:22:5-37:19
-MERGED from [com.google.android.gms:play-services-auth:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-auth-15.0.0.aar\952f0c01363bffb52ef1df7f78923d52\AndroidManifest.xml:22:5-37:19
-MERGED from [com.google.firebase:firebase-analytics:15.0.2] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-analytics-15.0.2.aar\1a8da00e32f6ff804f3a74950dbb1ee5\AndroidManifest.xml:28:5-53:19
-MERGED from [com.google.firebase:firebase-analytics:15.0.2] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-analytics-15.0.2.aar\1a8da00e32f6ff804f3a74950dbb1ee5\AndroidManifest.xml:28:5-53:19
-MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.2.aar\83453f0832f8eb5eab8449f0592770d9\AndroidManifest.xml:28:5-39:19
-MERGED from [com.google.firebase:firebase-analytics-impl:15.0.2] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.2.aar\83453f0832f8eb5eab8449f0592770d9\AndroidManifest.xml:28:5-39:19
-MERGED from [com.google.firebase:firebase-iid:15.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.1.0.aar\158002a2701272be6d53f2ff7704a4fb\AndroidManifest.xml:34:5-63:19
-MERGED from [com.google.firebase:firebase-iid:15.1.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.1.0.aar\158002a2701272be6d53f2ff7704a4fb\AndroidManifest.xml:34:5-63:19
-MERGED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\f4c21d6c7b4a824e333b515954b650ea\AndroidManifest.xml:7:5-13:19
-MERGED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\f4c21d6c7b4a824e333b515954b650ea\AndroidManifest.xml:7:5-13:19
-MERGED from [com.google.firebase:firebase-iid-interop:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-15.0.0.aar\e63f22897ab8502065d17b97b879d0e7\AndroidManifest.xml:7:5-8:19
-MERGED from [com.google.firebase:firebase-iid-interop:15.0.0] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-15.0.0.aar\e63f22897ab8502065d17b97b879d0e7\AndroidManifest.xml:7:5-8:19
-MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\a8b03ae89c62c43043f6f0085a4a3486\AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\a8b03ae89c62c43043f6f0085a4a3486\AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\a2cfcaf82da9ea7bc54d7d0b00f1e88f\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\a2cfcaf82da9ea7bc54d7d0b00f1e88f\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\b01c63f4d72cf096ab7823ced82d2004\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\b01c63f4d72cf096ab7823ced82d2004\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\a833997d178a608d7c98c916d4a6b642\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\a833997d178a608d7c98c916d4a6b642\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\8c3e786de9a58d101a3d0cab50ccafb6\AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\8c3e786de9a58d101a3d0cab50ccafb6\AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.2.aar\e7ff9e583e27cf5f93c0b635c662a5c4\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] C:\Users\Utilisateur\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.2.aar\e7ff9e583e27cf5f93c0b635c662a5c4\AndroidManifest.xml:22:5-20
-=======
-ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:5:5-26:19
+ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:5:5-23:19
 MERGED from [com.firebaseui:firebase-ui-auth:3.3.1] C:\Users\William\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-3.3.1.aar\65051a392960dad0f8f6be8023a0ae4d\AndroidManifest.xml:15:5-91:19
 MERGED from [com.firebaseui:firebase-ui-auth:3.3.1] C:\Users\William\.gradle\caches\transforms-1\files-1.1\firebase-ui-auth-3.3.1.aar\65051a392960dad0f8f6be8023a0ae4d\AndroidManifest.xml:15:5-91:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\William\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\514e322ba41de96b66890a8c40b3869f\AndroidManifest.xml:9:5-20
@@ -196,7 +98,6 @@ MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Will
 MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\William\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\8f37d22babe19f76334bc879f49649b3\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] C:\Users\William\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.2.aar\793515dd7921c23cf2a50e250df27357\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] C:\Users\William\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.2.aar\793515dd7921c23cf2a50e250df27357\AndroidManifest.xml:22:5-20
->>>>>>> origin/master
 	android:supportsRtl
 		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:10:9-35
 	android:label
@@ -210,63 +111,35 @@ MERGED from [com.google.android.gms:play-services-measurement-base:15.0.2] C:\Us
 	android:theme
 		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:11:9-40
 activity#ca.cours5b5.williamsarrazin.activites.AParametres
-<<<<<<< HEAD
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:12:9-68
-	android:name
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:12:19-56
-activity#ca.cours5b5.williamsarrazin.activites.APartie
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:13:9-64
-	android:name
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:13:19-52
-activity#ca.cours5b5.williamsarrazin.activites.APartieReseau
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:14:9-70
-	android:name
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:14:19-58
-activity#ca.cours5b5.williamsarrazin.activites.AMenuPrincipal
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:15:9-21:20
-	android:name
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:15:19-59
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:16:13-20:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:17:17-69
-	android:name
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:17:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:19:17-77
-	android:name
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:19:27-74
-activity#ca.cours5b5.williamsarrazin.activites.AEnAttenteAdversaire
-ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:22:9-77
-	android:name
-		ADDED from C:\Users\Utilisateur\AndroidStudioProjects\1704850\app\src\main\AndroidManifest.xml:22:19-65
-=======
-ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:12:9-13:20
+ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:12:9-68
 	android:name
 		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:12:19-56
+activity#ca.cours5b5.williamsarrazin.activites.APartie
+ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:13:9-64
+	android:name
+		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:13:19-52
 activity#ca.cours5b5.williamsarrazin.activites.APartieReseau
-ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:14:9-15:20
+ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:14:9-70
 	android:name
 		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:14:19-58
-activity#ca.cours5b5.williamsarrazin.activites.APartie
-ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:16:9-17:20
-	android:name
-		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:16:19-52
 activity#ca.cours5b5.williamsarrazin.activites.AMenuPrincipal
-ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:18:9-25:20
+ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:15:9-21:20
 	android:name
-		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:18:19-59
+		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:15:19-59
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:19:13-23:29
+ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:16:13-20:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:20:17-69
+ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:17:17-69
 	android:name
-		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:20:25-66
+		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:17:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:22:17-77
+ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:19:17-77
 	android:name
-		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:22:27-74
->>>>>>> origin/master
+		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:19:27-74
+activity#ca.cours5b5.williamsarrazin.activites.AEnAttenteAdversaire
+ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:22:9-77
+	android:name
+		ADDED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml:22:19-65
 uses-sdk
 INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\William\AndroidStudioProjects\WilliamSarrazin\app\src\main\AndroidManifest.xml

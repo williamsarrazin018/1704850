@@ -9,22 +9,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import ca.cours5b5.williamsarrazin.R;
 import ca.cours5b5.williamsarrazin.controleurs.ControleurAction;
-import ca.cours5b5.williamsarrazin.modeles.MPartieReseau;
-import ca.cours5b5.williamsarrazin.usagers.JoueursEnAttente;
-import ca.cours5b5.williamsarrazin.controleurs.ControleurModeles;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.ListenerFournisseur;
 import ca.cours5b5.williamsarrazin.global.GCommande;
-import ca.cours5b5.williamsarrazin.modeles.MParametres;
+import ca.cours5b5.williamsarrazin.usagers.UsagerCourant;
 
 import static ca.cours5b5.williamsarrazin.global.GConstantes.CODE_CONNEXION_FIREBASE;
 
 public class AMenuPrincipal extends Activite implements Fournisseur {
+
+    private boolean connecte = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +57,7 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
                     @Override
                     public void executer(Object... args) {
 
-                            transitionAttendreAdversaire();
+                            verifierConnexion();
                     }
                 });
     }
@@ -187,13 +185,32 @@ public class AMenuPrincipal extends Activite implements Fournisseur {
 
             if (resultCode == RESULT_OK) {
 
-                // Connexion réussie
+                if (UsagerCourant.siUsagerConnecte() && connecte) {
+                    transitionAttendreAdversaire();
+                    connecte = false;
+                }
 
             } else {
 
                 // connexion échouée
             }
         }
+    }
+
+    private void verifierConnexion() {
+
+        if (UsagerCourant.siUsagerConnecte()) {
+
+            transitionAttendreAdversaire();
+
+        } else {
+
+            connecte = true;
+
+            effectuerConnexion();
+
+        }
+
     }
 
 
