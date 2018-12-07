@@ -20,6 +20,10 @@ public class Action {
         ControleurAction.executerDesQuePossible(this);
     }
 
+    public boolean actionExecutable() {
+        return ControleurAction.siActionExecutable(this);
+    }
+
 
     Action cloner(){
 

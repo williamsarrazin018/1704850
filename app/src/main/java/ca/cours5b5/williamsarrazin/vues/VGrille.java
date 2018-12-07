@@ -189,6 +189,14 @@ public class VGrille extends GridLayout {
 
             List<MJeton> jetons = colonnes.get(numeroColonne).getJetons();
 
+            actionEntete.setArguments(numeroColonne);
+            if (actionEntete.actionExecutable()) {
+                entetes.get(numeroColonne).setEnabled(true);
+            } else {
+                entetes.get(numeroColonne).setEnabled(false);
+            }
+
+
             for(int numeroRangee=0; numeroRangee < jetons.size(); numeroRangee++){
 
                 MJeton jeton = jetons.get(numeroRangee);

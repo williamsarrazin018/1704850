@@ -26,8 +26,8 @@ public class MPartie extends Modele implements Fournisseur {
     public List<Integer> listeCoups;
     private final String __listeCoups = "listeCoups";
 
-    private MGrille grille;
-    private GCouleur couleurCourante;
+    protected MGrille grille;
+    protected GCouleur couleurCourante;
 
     public MPartie(MParametresPartie parametres) {
 
@@ -62,6 +62,20 @@ public class MPartie extends Modele implements Fournisseur {
         ControleurAction.fournirAction(this,
                 GCommande.PLACER_JETON_ICI,
                 new ListenerFournisseur() {
+
+                    @Override
+                    public boolean siExecutable(Object... args) {
+                        try {
+
+                            int colonne = (Integer) args[0];
+                            return siCoupLegal(colonne);
+
+                        } catch (ClassCastException erreurCast) {
+
+                            throw new ErreurAction(erreurCast);
+
+                        }
+                    }
 
                     @Override
                     public void executer(Object... args) {
@@ -115,7 +129,7 @@ public class MPartie extends Modele implements Fournisseur {
     }
 
 
-    private void prochaineCouleurCourante() {
+    protected void prochaineCouleurCourante() {
 
         switch (couleurCourante) {
 

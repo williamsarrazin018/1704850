@@ -5,7 +5,7 @@ android {
         debug {
             keyAlias 'key0'
             keyPassword '123456'
-            storeFile file('C:/Users/William/AndroidStudioProjects/WilliamSarrazin/debug.jks')
+            storeFile file('C:/Users/Utilisateur/AndroidStudioProjects/1704850/debug.jks')
             storePassword '123456'
         }
     }

@@ -1,6 +1,5 @@
 package ca.cours5b5.williamsarrazin.controleurs;
 
-import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -62,7 +61,13 @@ public final class ControleurAction {
 
     static boolean siActionExecutable(Action action) {
 
-        return action.listenerFournisseur != null;
+        boolean exec = false;
+
+        if (action.listenerFournisseur != null && action.listenerFournisseur.siExecutable(action.args)) {
+            exec = true;
+        }
+
+        return exec;
 
     }
 
