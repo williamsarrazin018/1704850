@@ -2,6 +2,8 @@ package ca.cours5b5.williamsarrazin.modeles;
 
 
 import java.util.Map;
+import java.util.Objects;
+
 import ca.cours5b5.williamsarrazin.controleurs.ControleurAction;
 import ca.cours5b5.williamsarrazin.controleurs.ControleurPartieReseau;
 import ca.cours5b5.williamsarrazin.controleurs.interfaces.Fournisseur;
@@ -10,11 +12,12 @@ import ca.cours5b5.williamsarrazin.exceptions.ErreurAction;
 import ca.cours5b5.williamsarrazin.exceptions.ErreurSerialisation;
 import ca.cours5b5.williamsarrazin.global.GCommande;
 import ca.cours5b5.williamsarrazin.global.GConstantes;
-import ca.cours5b5.williamsarrazin.global.GCouleur;
 import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
 import ca.cours5b5.williamsarrazin.usagers.UsagerCourant;
 
 public class MPartieReseau extends MPartie implements Fournisseur, Identifiable {
+
+    private boolean tour;
 
     @AttributSerialisable
     public String idJoueurInvite;
@@ -43,6 +46,9 @@ public class MPartieReseau extends MPartie implements Fournisseur, Identifiable 
                         String idColonne = (String) args[0];
                         recevoirCoupReseau(Integer.valueOf(idColonne));
 
+                        prochainTour();
+
+
                     }
                 });
     }
@@ -55,6 +61,8 @@ public class MPartieReseau extends MPartie implements Fournisseur, Identifiable 
                 GCommande.PLACER_JETON_ICI,
                 new ListenerFournisseur() {
 
+
+
                     @Override
                     public void executer(Object... args) {
                         try{
@@ -66,6 +74,7 @@ public class MPartieReseau extends MPartie implements Fournisseur, Identifiable 
 
                             ControleurPartieReseau.getInstance().transmettreCoup(colonne);
 
+                            prochainTour();
 
                         }catch(ClassCastException e){
 
@@ -73,23 +82,38 @@ public class MPartieReseau extends MPartie implements Fournisseur, Identifiable 
 
                         }
                     }
+
+
+                    public boolean siExecutable(Objects... args) {
+                            int colonne = Integer.parseInt(args[0].toString());
+
+                            return siCoupLegal(colonne);
+                    }
+
                 });
     }
 
 
     private void recevoirCoupReseau(int colonne){
-        if(super.siCoupLegal(colonne)){
 
-            super.jouerCoupLegal(colonne);
+        listeCoups.add(listeCoups.size(), colonne);
 
-        }
+        super.grille.placerJeton(colonne, couleurCourante);
+
+        prochaineCouleurCourante();
     }
 
     
     @Override
     protected boolean siCoupLegal(int colonne) {
 
-        return super.siCoupLegal(colonne);
+        boolean legal = false;
+
+        if (super.siCoupLegal(colonne) && tour) {
+            legal = true;
+        }
+
+        return legal;
 
     }
 
@@ -106,6 +130,8 @@ public class MPartieReseau extends MPartie implements Fournisseur, Identifiable 
 
         idJoueurHote = (String) objetJson.get(__idJoueurHote);
         idJoueurInvite = (String) objetJson.get(__idJoueurInvite);
+
+        chargerData();
 
     }
 
@@ -126,4 +152,11 @@ public class MPartieReseau extends MPartie implements Fournisseur, Identifiable 
         return idJoueurHote;
     }
 
+    private void prochainTour() {
+        tour = false;
+    }
+
+    private void chargerData() {
+        tour = UsagerCourant.getId().equals(idJoueurHote);
+    }
 }

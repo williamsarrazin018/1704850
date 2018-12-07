@@ -9,6 +9,7 @@ import ca.cours5b5.williamsarrazin.serialisation.AttributSerialisable;
 
 public class MParametresPartie extends Modele {
 
+
     @AttributSerialisable
     public Integer hauteur;
     protected final String __hauteur = "hauteur";
