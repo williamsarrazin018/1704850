@@ -96,14 +96,12 @@ public class MPartieReseau extends MPartie implements Fournisseur, Identifiable 
 
     private void recevoirCoupReseau(int colonne){
 
-        listeCoups.add(listeCoups.size(), colonne);
-
-        super.grille.placerJeton(colonne, couleurCourante);
-
-        prochaineCouleurCourante();
+        if(super.siCoupLegal(colonne)){
+            super.jouerCoupLegal(colonne);
+        }
     }
 
-    
+
     @Override
     protected boolean siCoupLegal(int colonne) {
 
@@ -153,7 +151,7 @@ public class MPartieReseau extends MPartie implements Fournisseur, Identifiable 
     }
 
     private void prochainTour() {
-        tour = false;
+        tour = !tour;
     }
 
     private void chargerData() {
