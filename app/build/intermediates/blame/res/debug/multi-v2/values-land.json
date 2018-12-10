@@ -1,29 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Utilisateur\\AndroidStudioProjects\\1704850\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "C:\\Users\\William\\AndroidStudioProjects\\WilliamSarrazin\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Utilisateur\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.0.aar\\dd8f4b812f88b524a55de24fd09fd416\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\William\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\e1546c1ab76a4a9171bafa7c4329cf77\\res\\values-land\\values-land.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "232"
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,125,189,260",
+                        "endColumns": "69,63,70,67",
+                        "endOffsets": "120,184,255,323"
                     },
                     "to": {
-                        "startLines": "7",
-                        "startColumns": "4",
-                        "startOffsets": "370",
-                        "endLines": "10",
-                        "endColumns": "12",
-                        "endOffsets": "547"
+                        "startLines": "3,4,5,6",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "97,167,231,302",
+                        "endColumns": "69,63,70,67",
+                        "endOffsets": "162,226,297,365"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Utilisateur\\AndroidStudioProjects\\1704850\\app\\src\\main\\res\\values-land\\bools.xml",
+                    "source": "C:\\Users\\William\\AndroidStudioProjects\\WilliamSarrazin\\app\\src\\main\\res\\values-land\\bools.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
@@ -40,20 +38,22 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Utilisateur\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\ba41619d0e791252185f80b0a9b370f9\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\William\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.0.aar\\0320ba873d966a2293ec379c749fb2d9\\res\\values-land\\values-land.xml",
                     "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,125,189,260",
-                        "endColumns": "69,63,70,67",
-                        "endOffsets": "120,184,255,323"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "232"
                     },
                     "to": {
-                        "startLines": "3,4,5,6",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "97,167,231,302",
-                        "endColumns": "69,63,70,67",
-                        "endOffsets": "162,226,297,365"
+                        "startLines": "7",
+                        "startColumns": "4",
+                        "startOffsets": "370",
+                        "endLines": "10",
+                        "endColumns": "12",
+                        "endOffsets": "547"
                     }
                 }
             ]
